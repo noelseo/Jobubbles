@@ -7,12 +7,16 @@ const data = [
     name: "JPMorgan",
     value: 88,
     icon: "../img/jpmorgan.png",
-    desc: `Software Engineer`
+    desc: `Software Engineer`, 
+    // openings: [
+    //   {name: }
+    // ]
   },
   {
     cat: "Education",
     name: "UCSF",
     value: 13,
+    icon: "../img/ucsf.png",
     desc: "Software Engineer"
   },
   {
@@ -46,37 +50,43 @@ const data = [
   {
     cat: "Biotech",
     name: "Genentech",
-    value: 14,
+    value: 100,
+    icon: "../img/genentech.png",
     desc: "Software Engineer"
   },
   {
-    cat: "Healthcare",
-    name: "United Healthcare",
-    value: 30,
+    cat: "Tech",
+    name: "Samsung",
+    value: 300,
+    icon: "../img/samsung.png",
     desc: "Software Engineer"
   },
   {
     cat: "Biotech",
     name: "Neuralink",
     value: 40,
+    icon: "../img/neuralink.png",
     desc: "Software Engineer"
   },
   {
     cat: "Financial Services",
     name: "Capital One",
-    value: 80,
+    value: 110,
+    icon: "../img/capitalone.png",
     desc: "Software Engineer"
   },
   {
     cat: "Education",
     name: "App Academy",
-    value: 8,
+    value: 20,
+    icon: "../img/aa.png",
     desc: "Instructor"
   },
   {
     cat: "Tech",
     name: "Microsoft",
     value: 150,
+    icon: "../img/microsoft.png",
     desc: "Software Engineer"
   },
   {
@@ -89,31 +99,36 @@ const data = [
   {
     cat: "Retail",
     name: "Nordstrom",
-    value: 30,
+    value: 60,
+    icon: "../img/nordstrom.png",
     desc: "Frontend Engineer"
   },
   {
     cat: "Nonprofit",
     name: "Bill & Melinda Gates Foundation",
-    value: 10,
+    value: 250,
+    icon: "../img/billgates.png",
     desc: "Software Engineer"
   },
   {
     cat: "Automotive",
     name: "Tesla",
     value: 65,
+    icon: "../img/tesla.png",
     desc: "Software Engineer"
   },
   {
-    cat: "Nonprofit", 
-    name: "American Heart Association",
-    value: 10,
+    cat: "Financial Services", 
+    name: "American Express",
+    value: 80,
+    icon: "../img/amex.png",
     desc: "Software Engineer"
   },
   {
     cat: "Financial Services",
     name: "Visa",
-    value: 20,
+    value: 45,
+    icon: "../img/visa.png",
     desc: "Software Engineer"
   },
   {
@@ -122,7 +137,42 @@ const data = [
     value: 100,
     icon: "../img/fb.png",
     desc: "Software Engineer"
-  }
+  },
+  {
+    cat: "Tech",
+    name: "Uber",
+    value: 100,
+    icon: "../img/uber.png",
+    desc: "Software Engineer"
+  },
+  {
+    cat: "Tech",
+    name: "Airbnb",
+    value: 100,
+    icon: "../img/airbnb.png",
+    desc: "Software Engineer"
+  }, 
+  {
+    cat: "Tech",
+    name: "YouTube",
+    value: 100,
+    icon: "../img/youtube.png",
+    desc: "Software Engineer"
+  }, 
+  {
+    cat: "Retail",
+    name: "McDonald's",
+    value: 50,
+    icon: "../img/mcdonalds.png",
+    desc: "Software Engineer"
+  }, 
+  {
+    cat: "Retail",
+    name: "Starbucks",
+    value: 50,
+    icon: "../img/starbucks.png",
+    desc: "Software Engineer"
+  }, 
 ];
 
 module.exports = data;

@@ -8,10 +8,10 @@ const data = [
     value: 88,
     icon: "../img/jpmorgan.png",
     desc: "See how far your thinking can go.", 
-    openings: [
-      {name: "Software Engineer"},
-      {name: "Software Developer"},
-      {name: "Senior Engineer"}
+    children: [
+      {name: "Software Engineer", value: 38},
+      {name: "Software Developer", value: 45},
+      {name: "Senior Engineer", value: 5}
     ]
   },
   {
@@ -31,7 +31,7 @@ const data = [
   {
     cat: "Education",
     name: "UC Davis",
-    value: 20,
+    value: 30,
     icon: "../img/ucdavis.png",
     desc: "Software Engineer"
   },

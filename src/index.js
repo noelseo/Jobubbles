@@ -12,7 +12,7 @@ function run() {
     // let format = d3.format(",d");
 
     // let scaleColor = d3.scaleOrdinal(d3.schemeCategory10);
-  let scaleColor = d3.scaleOrdinal([`#323a45`, `#3f6184`, `#778899`, `#5faeb6`, `#1d456d`, `#1e3349`, `#4c5f72`, `#85888b`])
+    let scaleColor = d3.scaleOrdinal([`#323a45`, `#3f6184`, `#778899`, `#5faeb6`, `#1d456d`, `#1e3349`, `#4c5f72`, `#85888b`])
 
     // use the force
     let simulation = d3
@@ -39,8 +39,12 @@ function run() {
     // we use pack() to automatically calculate radius conveniently only
     // and get only the leaves
     let nodes = pack(root)
-      .leaves() // leaves are nodes with no children
+      .descendants() //.leaves() // leaves are nodes with no children
+      .filter(function(d) {
+        return d.depth === 1;
+      })
       .map(node => {
+        debugger;
         console.log("node:", node.x, (node.x - centerX) * 2);
         const data = node.data;
         return {
@@ -62,6 +66,30 @@ function run() {
 
     svg.style("background-color", "transparent");
 
+    let node = svg
+      .selectAll(".node")
+      .data(nodes)
+      .enter()
+      .append("g")
+      .attr("class", "node")
+      .call(
+        d3
+          .drag()
+          .on("start", d => {
+            if (!d3.event.active) simulation.alphaTarget(0.2).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+          })
+          .on("drag", d => {
+            d.fx = d3.event.x;
+            d.fy = d3.event.y;
+          })
+          .on("end", d => {
+            if (!d3.event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+          })
+      );
 
 
 }

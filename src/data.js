@@ -7,10 +7,12 @@ const data = [
     name: "JPMorgan",
     value: 88,
     icon: "../img/jpmorgan.png",
-    desc: `Software Engineer`, 
-    // openings: [
-    //   {name: }
-    // ]
+    desc: "See how far your thinking can go.", 
+    openings: [
+      {name: "Software Engineer"},
+      {name: "Software Developer"},
+      {name: "Senior Engineer"}
+    ]
   },
   {
     cat: "Education",

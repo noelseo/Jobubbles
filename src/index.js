@@ -12,7 +12,7 @@ function Jobubbles() {
   // let format = d3.format(",d");
 
   // let scaleColor = d3.scaleOrdinal(d3.schemeCategory10);
-  let scaleColor = d3.scaleOrdinal([`#778899`, `#3f6184`, `#4c5f72`, `#a9845c`, `#6d6e41`, `#29586c`, `#5faeb6`, `#1d456d`, `#1e3349`, `#4c5f72`, `#85888b`])
+  let scaleColor = d3.scaleOrdinal([`#789c6e`, `#4c5f72`, `#1e3349`, `#a64960`, `#29586c`, `#1d456d`, `#85888b`, `#a9845c`, `#89c7d6`]) //`#6d6e41`
 
   // use the force
   let simulation = d3
@@ -155,10 +155,36 @@ function Jobubbles() {
 
   Legend(scaleColor, svg);
 
-
+  
   // --------------------------------------------------------------------------------
     
+  let infoBox = node
+    .append("foreignObject")
+    .classed("circle-overlay hidden", true)
+    .attr("x", -550 * 0.5 * 0.8) // location inside the circle
+    .attr("y", -200 * 0.5 * 0.8)
+    .attr("height", 350 * 0.8) // inner part
+    .attr("width", 550 * 0.8) // inner part
+    .append("xhtml:div")
+    .classed("circle-overlay__inner", true);
+
+  infoBox
+    .append("h2")
+    .classed("circle-overlay__title", true)
+    .text(d => d.name);
+
+  infoBox
+    .append("p")
+    .classed("circle-overlay__body", true)
+    .html(d => d.desc);
   
+  infoBox
+    .append("a")
+    .classed("circle-overlay__bottom", true)
+    .html(d => d.link)
+    .attr('href', d => d.linkUrl);
+
+
 
 }
 

@@ -335,6 +335,34 @@ const data = [
       { name: "Senior Engineer", value: 5 }
     ]
   }, 
+  {
+    cat: "Airlines",
+    name: "Southwest",
+    value: 70,
+    icon: "../img/southwest.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://careers.southwestair.com/",
+    children: [
+      { name: "Software Engineer", value: 50 },
+      { name: "Software Developer", value: 15 },
+      { name: "Senior Engineer", value: 5 }
+    ]
+  },
+  {
+    cat: "Arms",
+    name: "Boeing",
+    value: 200,
+    icon: "../img/boeing.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://jobs.boeing.com/",
+    children: [
+      { name: "Software Engineer", value: 150 },
+      { name: "Software Developer", value: 30 },
+      { name: "Senior Engineer", value: 20 }
+    ]
+  },
 ];
 
 module.exports = data;

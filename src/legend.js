@@ -17,6 +17,7 @@ function Legend(scaleColor, svg) {
         .style("font-size", "20px")
         .call(legendOrdinal);
     
+    
     // --------------------------------------------------------------------------------
     // less openings, more openings
     

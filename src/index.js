@@ -194,7 +194,7 @@ function Jobubbles() {
 
 
   // --------------------------------------------------------------------------------
-
+    
 
   function ticked() {
     node
@@ -207,3 +207,11 @@ function Jobubbles() {
 
 
 Jobubbles();
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll(".legendCells > g").forEach((el, idx) => {
+    el.setAttribute('id', idx);
+  });
+})

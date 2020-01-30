@@ -2,15 +2,15 @@ const data = [
   {
     cat: "Financial Services",
     name: "JPMorgan",
-    value: 88,
+    value: 120,
     icon: "../img/jpmorgan.png",
     desc: "See how far your thinking can go.",
     link: "Learn More",
     linkUrl: "https://careers.jpmorgan.com/us/en/home",
     children: [
-      {name: "Software Engineer", value: 38},
-      {name: "Software Developer", value: 45},
-      {name: "Senior Engineer", value: 5}
+      {name: "Software Engineer", value: 50 },
+      {name: "Software Developer", value: 50 },
+      {name: "Senior Engineer", value: 20 }
     ]
   },
   {
@@ -22,9 +22,9 @@ const data = [
     link: "Learn More",
     linkUrl: "https://www.ucsf.edu/about/working-ucsf",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 3 },
+      { name: "Software Developer", value: 1 },
+      { name: "Senior Engineer", value: 7 }
     ]
   },
   {
@@ -36,8 +36,8 @@ const data = [
     link: "Learn More",
     linkUrl: "https://career.berkeley.edu/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
+      { name: "Software Engineer", value: 10 },
+      { name: "Software Developer", value: 5 },
       { name: "Senior Engineer", value: 5 }
     ]
   },
@@ -50,51 +50,51 @@ const data = [
     link: "Learn More",
     linkUrl: "https://www.ucdavis.edu/jobs/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 10 },
+      { name: "Software Developer", value: 10 },
+      { name: "Senior Engineer", value: 10 }
     ]
   },
   {
     cat: "Tech",
     name: "Google",
-    value: 100,
+    value: 400,
     icon: "../img/google.png",
     desc: 'Software Engineer',
     link: "Learn More",
     linkUrl: "https://careers.google.com/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 200 },
+      { name: "Software Developer", value: 150 },
+      { name: "Senior Engineer", value: 50 }
     ]
   },
   {
     cat: "Tech",
     name: "Salesforce",
-    value: 70,
+    value: 300,
     icon: "../img/salesforce.png",
     desc: "Software Engineer",
     link: "Learn More",
     linkUrl: "https://www.salesforce.com/company/careers/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 200 },
+      { name: "Software Developer", value: 50 },
+      { name: "Senior Engineer", value: 50 }
     ]
   },
   {
-    cat: "Biotech",
-    name: "Genentech",
+    cat: "Financial Services",
+    name: "Goldman Sachs",
     value: 100,
-    icon: "../img/genentech.png",
+    icon: "../img/goldman.png",
     desc: "Software Engineer",
     link: "Learn More",
-    linkUrl: "https://www.gene.com/careers",
+    linkUrl: "https://www.goldmansachs.com/careers/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 70 },
+      { name: "Software Developer", value: 20 },
+      { name: "Senior Engineer", value: 10 }
     ]
   },
   {
@@ -106,9 +106,9 @@ const data = [
     link: "Learn More",
     linkUrl: "https://www.samsung.com/us/careers/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 250 },
+      { name: "Software Developer", value: 30 },
+      { name: "Senior Engineer", value: 20 }
     ]
   },
   {
@@ -120,23 +120,23 @@ const data = [
     link: "Learn More",
     linkUrl: "https://jobs.lever.co/neuralink",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 25 },
+      { name: "Software Developer", value: 15 },
+      { name: "Senior Engineer", value: 10 }
     ]
   },
   {
     cat: "Financial Services",
     name: "Capital One",
-    value: 110,
+    value: 200,
     icon: "../img/capitalone.png",
     desc: "Software Engineer",
     link: "Learn More",
     linkUrl: "https://www.capitalonecareers.com/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 170 },
+      { name: "Software Developer", value: 20 },
+      { name: "Senior Engineer", value: 10 }
     ]
   },
   {
@@ -148,9 +148,9 @@ const data = [
     link: "Learn More",
     linkUrl: "https://jobs.lever.co/appacademy/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 10 },
+      { name: "Software Developer", value: 7 },
+      { name: "Senior Engineer", value: 3 }
     ]
   },
   {
@@ -162,51 +162,51 @@ const data = [
     link: "Learn More",
     linkUrl: "https://careers.microsoft.com/us/en/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 100 },
+      { name: "Software Developer", value: 35 },
+      { name: "Senior Engineer", value: 15 }
     ]
   },
   {
     cat: "Tech",
     name: "Apple",
-    value: 180,
+    value: 500,
     icon: "../img/apple.png",
     desc: "Software Engineer",
     link: "Learn More",
     linkUrl: "https://www.apple.com/jobs/us/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 70 },
+      { name: "Software Developer", value: 15 },
+      { name: "Senior Engineer", value: 15 }
     ]
   },
   {
     cat: "Retail",
     name: "Nordstrom",
-    value: 60,
+    value: 100,
     icon: "../img/nordstrom.png",
     desc: "Frontend Engineer",
     link: "Learn More",
     linkUrl: "https://careers.nordstrom.com/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 50 },
+      { name: "Software Developer", value: 48 },
+      { name: "Senior Engineer", value: 2 }
     ]
   },
   {
     cat: "Nonprofit",
     name: "Bill & Melinda Gates Foundation",
-    value: 250,
+    value: 200,
     icon: "../img/billgates.png",
     desc: "Software Engineer",
     link: "Learn More",
     linkUrl: "https://www.gatesfoundation.org/careers",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 150 },
+      { name: "Software Developer", value: 35 },
+      { name: "Senior Engineer", value: 15 }
     ]
   },
   {
@@ -218,9 +218,9 @@ const data = [
     link: "Learn More",
     linkUrl: "https://www.tesla.com/careers",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 30 },
+      { name: "Software Developer", value: 25 },
+      { name: "Senior Engineer", value: 10 }
     ]
   },
   {
@@ -232,9 +232,9 @@ const data = [
     link: "Learn More",
     linkUrl: "https://careers.americanexpress.com/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 30 },
+      { name: "Software Developer", value: 40 },
+      { name: "Senior Engineer", value: 10 }
     ]
   },
   {
@@ -246,9 +246,9 @@ const data = [
     link: "Learn More",
     linkUrl: "https://usa.visa.com/careers.html",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 10 },
+      { name: "Software Developer", value: 25 },
+      { name: "Senior Engineer", value: 10 }
     ]
   },
   {
@@ -260,9 +260,9 @@ const data = [
     link: "Learn More",
     linkUrl: "https://www.facebook.com/careers/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 30 },
+      { name: "Software Developer", value: 55 },
+      { name: "Senior Engineer", value: 15 }
     ]
   },
   {
@@ -274,9 +274,9 @@ const data = [
     link: "Learn More",
     linkUrl: "https://www.uber.com/us/en/careers/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 20 },
+      { name: "Software Developer", value: 65 },
+      { name: "Senior Engineer", value: 15 }
     ]
   },
   {
@@ -288,9 +288,9 @@ const data = [
     link: "Learn More",
     linkUrl: "https://careers.airbnb.com/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 20 },
+      { name: "Software Developer", value: 70 },
+      { name: "Senior Engineer", value: 10 }
     ]
   }, 
   {
@@ -302,9 +302,9 @@ const data = [
     link: "Learn More",
     linkUrl: "https://www.youtube.com/jobs/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 20 },
+      { name: "Software Developer", value: 60 },
+      { name: "Senior Engineer", value: 20 }
     ]
   }, 
   {
@@ -316,9 +316,9 @@ const data = [
     link: "Learn More",
     linkUrl: "https://careers.mcdonalds.com/main/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
-      { name: "Senior Engineer", value: 5 }
+      { name: "Software Engineer", value: 10 },
+      { name: "Software Developer", value: 30 },
+      { name: "Senior Engineer", value: 10 }
     ]
   }, 
   {
@@ -330,8 +330,8 @@ const data = [
     link: "Learn More",
     linkUrl: "https://www.starbucks.com/careers/",
     children: [
-      { name: "Software Engineer", value: 38 },
-      { name: "Software Developer", value: 45 },
+      { name: "Software Engineer", value: 10 },
+      { name: "Software Developer", value: 35 },
       { name: "Senior Engineer", value: 5 }
     ]
   }, 

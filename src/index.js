@@ -152,7 +152,9 @@ function Jobubbles() {
   //   .append("title")
   //   .text(d => d.cat + "::" + d.name + "\n" + format(d.value));
 
+  // --------------------------------------------------------------------------------
 
+  // another file
   Legend(scaleColor, svg);
 
   
@@ -176,7 +178,7 @@ function Jobubbles() {
   infoBox
     .append("p")
     .classed("circle-overlay__body", true)
-    .html(d => d.desc);
+    .html(d => d.value + ` openings`);
   
   infoBox
     .append("a")
@@ -184,7 +186,8 @@ function Jobubbles() {
     .html(d => d.link)
     .attr('href', d => d.linkUrl);
 
-
+  // --------------------------------------------------------------------------------
+  
 
 }
 

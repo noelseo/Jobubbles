@@ -326,7 +326,7 @@ const data = [
     name: "Starbucks",
     value: 50,
     icon: "../img/starbucks.png",
-    desc: "Software Engineer",
+    desc: "Inspire positive change in the world while you grow in your career and in your community.",
     link: "Learn More",
     linkUrl: "https://www.starbucks.com/careers/",
     children: [
@@ -340,7 +340,7 @@ const data = [
     name: "Southwest",
     value: 70,
     icon: "../img/southwest.png",
-    desc: "Software Engineer",
+    desc: "Share your interests and preferences for a personalized experience.",
     link: "Learn More",
     linkUrl: "https://careers.southwestair.com/",
     children: [
@@ -354,7 +354,7 @@ const data = [
     name: "Boeing",
     value: 200,
     icon: "../img/boeing.png",
-    desc: "Software Engineer",
+    desc: "From the seabed to outer space, we are redefining the next generation.",
     link: "Learn More",
     linkUrl: "https://jobs.boeing.com/",
     children: [

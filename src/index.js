@@ -1,5 +1,6 @@
 import data from './data';
 import Legend from './legend';
+import Animate from './animate';
 
 function Jobubbles() {
   let svg = d3.select("svg");
@@ -188,6 +189,19 @@ function Jobubbles() {
 
   // --------------------------------------------------------------------------------
   
+  // another file
+  Animate(node, focusedNode, simulation, centerX, centerY);
+
+
+  // --------------------------------------------------------------------------------
+
+
+  function ticked() {
+    node
+      .attr("transform", d => `translate(${d.x},${d.y})`)
+      .select("circle")
+      .attr("r", d => d.r);
+  }
 
 }
 

@@ -30,13 +30,13 @@ const data = [
   {
     cat: "Education",
     name: "UC Berkeley",
-    value: 20,
+    value: 30,
     icon: "../img/berkeley.png",
     desc: "Software Engineer",
     link: "Learn More",
     linkUrl: "https://career.berkeley.edu/",
     children: [
-      { name: "Software Engineer", value: 10 },
+      { name: "Software Engineer", value: 20 },
       { name: "Software Developer", value: 5 },
       { name: "Senior Engineer", value: 5 }
     ]

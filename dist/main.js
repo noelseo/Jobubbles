@@ -93,7 +93,112 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("function Animate(node, focusedNode, simulation, centerX, centerY) {\n\n    //----------------------------------------------------------------------------------\n    // when clicked\n\n    node.on(\"click\", currentNode => {\n        d3.event.stopPropagation();\n        let currentTarget = d3.event.currentTarget; // the <g> el\n\n        if (currentNode === focusedNode) { // no focusedNode or same focused node is clicked\n            return;\n        }\n\n        let lastNode = focusedNode;\n        focusedNode = currentNode;\n\n        simulation.alphaTarget(0.2).restart();\n\n        // hide all circle-overlay\n        d3.selectAll(\".circle-overlay\").classed(\"hidden\", true);\n        d3.selectAll(\".node-icon\").classed(\"node-icon--faded\", false).style(\"opacity\", 1);\n\n        // don't fix last node to center anymore\n        if (lastNode) {\n            lastNode.fx = null;\n            lastNode.fy = null;\n            \n            node\n                .filter((d, i) => i === lastNode.index)\n                .transition()\n                .duration(1000)\n                .ease(d3.easePolyOut)\n                .tween(\"circleOut\", () => {\n                    let irl = d3.interpolateNumber(lastNode.r, lastNode.radius);\n                    return t => {\n                        lastNode.r = irl(t);\n                    };\n                })\n                .on(\"interrupt\", () => {\n                    lastNode.r = lastNode.radius;\n                });\n        }\n\n        d3.transition() // Start an animated transition. Circle opens\n            .duration(1000)\n            .ease(d3.easePolyOut)\n            .tween(\"moveIn\", () => {\n                let ix = d3.interpolateNumber(currentNode.x, centerX);\n                let iy = d3.interpolateNumber(currentNode.y, centerY);\n                let ir = d3.interpolateNumber(currentNode.r, centerY * 0.5);\n                return function (t) {\n                    currentNode.fx = ix(t);\n                    currentNode.fy = iy(t);\n                    currentNode.r = ir(t);\n                    simulation.force(\"collide\", d3.forceCollide(d => d.r));\n                };\n            })\n            .on(\"end\", () => {\n                simulation.alphaTarget(0);\n                let currentGroup = d3.select(currentTarget);\n                currentGroup.select(\".circle-overlay\").classed(\"hidden\", false);\n                currentGroup.select(\".node-icon\").classed(\"node-icon--faded\", true).style(\"opacity\", 0); // style makes the logo disappear as soon as clicked\n            })\n        // .on(\"interrupt\", () => {\n        //   currentNode.fx = null;\n        //   currentNode.fy = null;\n        //   simulation.alphaTarget(0);\n        // });\n    });\n\n    // blur\n    d3.select(document).on(\"click\", () => {\n        let target = d3.event.target;\n        // check if click on document but not on the circle overlay\n        if (!target.closest(\"#circle-overlay\") && focusedNode) {\n            focusedNode.fx = null;\n            focusedNode.fy = null;\n            simulation.alphaTarget(0.2).restart();\n            d3.transition()\n                .duration(3000)\n                .ease(d3.easePolyOut)\n                .tween(\"moveOut\", function () {\n                    console.log(\"tweenMoveOut\", focusedNode);\n                    let ir = d3.interpolateNumber(focusedNode.r, focusedNode.radius);\n                    return function (t) {\n                        focusedNode.r = ir(t);\n                        simulation.force(\"collide\", d3.forceCollide(d => d.r));\n                    };\n                })\n                .on(\"end\", () => {\n                    focusedNode = null;\n                    simulation.alphaTarget(0);\n                })\n            // .on(\"interrupt\", () => {\n            //   simulation.alphaTarget(0);\n            // });\n\n            // // hide all circle-overlay\n            d3.selectAll(\".circle-overlay\").classed(\"hidden\", true);\n            d3.selectAll(\".node-icon\").classed(\"node-icon--faded\", false).style(\"opacity\", 1);\n        }\n    });\n\n}\n\nmodule.exports = Animate;\n\n//# sourceURL=webpack:///./src/animate.js?");
+function Animate(node, focusedNode, simulation, centerX, centerY) {
+
+    //----------------------------------------------------------------------------------
+    // when clicked
+
+    node.on("click", currentNode => {
+        d3.event.stopPropagation();
+        let currentTarget = d3.event.currentTarget; // the <g> el
+
+        if (currentNode === focusedNode) { // no focusedNode or same focused node is clicked
+            return;
+        }
+
+        let lastNode = focusedNode;
+        focusedNode = currentNode;
+
+        simulation.alphaTarget(0.2).restart();
+
+        // hide all circle-overlay
+        d3.selectAll(".circle-overlay").classed("hidden", true);
+        d3.selectAll(".node-icon").classed("node-icon--faded", false).style("opacity", 1);
+
+        // don't fix last node to center anymore
+        if (lastNode) {
+            lastNode.fx = null;
+            lastNode.fy = null;
+            
+            node
+                .filter((d, i) => i === lastNode.index)
+                .transition()
+                .duration(1000)
+                .ease(d3.easePolyOut)
+                .tween("circleOut", () => {
+                    let irl = d3.interpolateNumber(lastNode.r, lastNode.radius);
+                    return t => {
+                        lastNode.r = irl(t);
+                    };
+                })
+                .on("interrupt", () => {
+                    lastNode.r = lastNode.radius;
+                });
+        }
+
+        d3.transition() // Start an animated transition. Circle opens
+            .duration(1000)
+            .ease(d3.easePolyOut)
+            .tween("moveIn", () => {
+                let ix = d3.interpolateNumber(currentNode.x, centerX);
+                let iy = d3.interpolateNumber(currentNode.y, centerY);
+                let ir = d3.interpolateNumber(currentNode.r, centerY * 0.5);
+                return function (t) {
+                    currentNode.fx = ix(t);
+                    currentNode.fy = iy(t);
+                    currentNode.r = ir(t);
+                    simulation.force("collide", d3.forceCollide(d => d.r));
+                };
+            })
+            .on("end", () => {
+                simulation.alphaTarget(0);
+                let currentGroup = d3.select(currentTarget);
+                currentGroup.select(".circle-overlay").classed("hidden", false);
+                currentGroup.select(".node-icon").classed("node-icon--faded", true).style("opacity", 0); // style makes the logo disappear as soon as clicked
+            })
+        // .on("interrupt", () => {
+        //   currentNode.fx = null;
+        //   currentNode.fy = null;
+        //   simulation.alphaTarget(0);
+        // });
+    });
+
+    // blur
+    d3.select(document).on("click", () => {
+        let target = d3.event.target;
+        // check if click on document but not on the circle overlay
+        if (!target.closest("#circle-overlay") && focusedNode) {
+            focusedNode.fx = null;
+            focusedNode.fy = null;
+            simulation.alphaTarget(0.2).restart();
+            d3.transition()
+                .duration(3000)
+                .ease(d3.easePolyOut)
+                .tween("moveOut", function () {
+                    console.log("tweenMoveOut", focusedNode);
+                    let ir = d3.interpolateNumber(focusedNode.r, focusedNode.radius);
+                    return function (t) {
+                        focusedNode.r = ir(t);
+                        simulation.force("collide", d3.forceCollide(d => d.r));
+                    };
+                })
+                .on("end", () => {
+                    focusedNode = null;
+                    simulation.alphaTarget(0);
+                })
+            // .on("interrupt", () => {
+            //   simulation.alphaTarget(0);
+            // });
+
+            // // hide all circle-overlay
+            d3.selectAll(".circle-overlay").classed("hidden", true);
+            d3.selectAll(".node-icon").classed("node-icon--faded", false).style("opacity", 1);
+        }
+    });
+
+}
+
+module.exports = Animate;
 
 /***/ }),
 
@@ -104,7 +209,374 @@ eval("function Animate(node, focusedNode, simulation, centerX, centerY) {\n\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("const data = [\n  {\n    cat: \"Financial Services\",\n    name: \"JPMorgan\",\n    value: 120,\n    icon: \"../img/jpmorgan.png\",\n    desc: \"See how far your thinking can go.\",\n    link: \"Learn More\",\n    linkUrl: \"https://careers.jpmorgan.com/us/en/home\",\n    children: [\n      {name: \"Software Engineer\", value: 50 },\n      {name: \"Software Developer\", value: 50 },\n      {name: \"Senior Engineer\", value: 20 }\n    ]\n  },\n  {\n    cat: \"Education\",\n    name: \"UCSF\",\n    value: 13,\n    icon: \"../img/ucsf.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://www.ucsf.edu/about/working-ucsf\",\n    children: [\n      { name: \"Software Engineer\", value: 3 },\n      { name: \"Software Developer\", value: 1 },\n      { name: \"Senior Engineer\", value: 7 }\n    ]\n  },\n  {\n    cat: \"Education\",\n    name: \"UC Berkeley\",\n    value: 30,\n    icon: \"../img/berkeley.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://career.berkeley.edu/\",\n    children: [\n      { name: \"Software Engineer\", value: 20 },\n      { name: \"Software Developer\", value: 5 },\n      { name: \"Senior Engineer\", value: 5 }\n    ]\n  },\n  {\n    cat: \"Education\",\n    name: \"UC Davis\",\n    value: 30,\n    icon: \"../img/ucdavis.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://www.ucdavis.edu/jobs/\",\n    children: [\n      { name: \"Software Engineer\", value: 10 },\n      { name: \"Software Developer\", value: 10 },\n      { name: \"Senior Engineer\", value: 10 }\n    ]\n  },\n  {\n    cat: \"Tech\",\n    name: \"Google\",\n    value: 400,\n    icon: \"../img/google.png\",\n    desc: 'Software Engineer',\n    link: \"Learn More\",\n    linkUrl: \"https://careers.google.com/\",\n    children: [\n      { name: \"Software Engineer\", value: 200 },\n      { name: \"Software Developer\", value: 150 },\n      { name: \"Senior Engineer\", value: 50 }\n    ]\n  },\n  {\n    cat: \"Tech\",\n    name: \"Salesforce\",\n    value: 300,\n    icon: \"../img/salesforce.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://www.salesforce.com/company/careers/\",\n    children: [\n      { name: \"Software Engineer\", value: 200 },\n      { name: \"Software Developer\", value: 50 },\n      { name: \"Senior Engineer\", value: 50 }\n    ]\n  },\n  {\n    cat: \"Financial Services\",\n    name: \"Goldman Sachs\",\n    value: 100,\n    icon: \"../img/goldman.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://www.goldmansachs.com/careers/\",\n    children: [\n      { name: \"Software Engineer\", value: 70 },\n      { name: \"Software Developer\", value: 20 },\n      { name: \"Senior Engineer\", value: 10 }\n    ]\n  },\n  {\n    cat: \"Tech\",\n    name: \"Samsung\",\n    value: 300,\n    icon: \"../img/samsung.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://www.samsung.com/us/careers/\",\n    children: [\n      { name: \"Software Engineer\", value: 250 },\n      { name: \"Software Developer\", value: 30 },\n      { name: \"Senior Engineer\", value: 20 }\n    ]\n  },\n  {\n    cat: \"Biotech\",\n    name: \"Neuralink\",\n    value: 40,\n    icon: \"../img/neuralink.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://jobs.lever.co/neuralink\",\n    children: [\n      { name: \"Software Engineer\", value: 25 },\n      { name: \"Software Developer\", value: 15 },\n      { name: \"Senior Engineer\", value: 10 }\n    ]\n  },\n  {\n    cat: \"Financial Services\",\n    name: \"Capital One\",\n    value: 200,\n    icon: \"../img/capitalone.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://www.capitalonecareers.com/\",\n    children: [\n      { name: \"Software Engineer\", value: 170 },\n      { name: \"Software Developer\", value: 20 },\n      { name: \"Senior Engineer\", value: 10 }\n    ]\n  },\n  {\n    cat: \"Education\",\n    name: \"App Academy\",\n    value: 20,\n    icon: \"../img/aa.png\",\n    desc: \"Instructor\",\n    link: \"Learn More\",\n    linkUrl: \"https://jobs.lever.co/appacademy/\",\n    children: [\n      { name: \"Software Engineer\", value: 10 },\n      { name: \"Software Developer\", value: 7 },\n      { name: \"Senior Engineer\", value: 3 }\n    ]\n  },\n  {\n    cat: \"Tech\",\n    name: \"Microsoft\",\n    value: 150,\n    icon: \"../img/microsoft.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://careers.microsoft.com/us/en/\",\n    children: [\n      { name: \"Software Engineer\", value: 100 },\n      { name: \"Software Developer\", value: 35 },\n      { name: \"Senior Engineer\", value: 15 }\n    ]\n  },\n  {\n    cat: \"Tech\",\n    name: \"Apple\",\n    value: 500,\n    icon: \"../img/apple.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://www.apple.com/jobs/us/\",\n    children: [\n      { name: \"Software Engineer\", value: 70 },\n      { name: \"Software Developer\", value: 15 },\n      { name: \"Senior Engineer\", value: 15 }\n    ]\n  },\n  {\n    cat: \"Retail\",\n    name: \"Nordstrom\",\n    value: 100,\n    icon: \"../img/nordstrom.png\",\n    desc: \"Frontend Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://careers.nordstrom.com/\",\n    children: [\n      { name: \"Software Engineer\", value: 50 },\n      { name: \"Software Developer\", value: 48 },\n      { name: \"Senior Engineer\", value: 2 }\n    ]\n  },\n  {\n    cat: \"Nonprofit\",\n    name: \"Bill & Melinda Gates Foundation\",\n    value: 200,\n    icon: \"../img/billgates.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://www.gatesfoundation.org/careers\",\n    children: [\n      { name: \"Software Engineer\", value: 150 },\n      { name: \"Software Developer\", value: 35 },\n      { name: \"Senior Engineer\", value: 15 }\n    ]\n  },\n  {\n    cat: \"Automotive\",\n    name: \"Tesla\",\n    value: 65,\n    icon: \"../img/tesla.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://www.tesla.com/careers\",\n    children: [\n      { name: \"Software Engineer\", value: 30 },\n      { name: \"Software Developer\", value: 25 },\n      { name: \"Senior Engineer\", value: 10 }\n    ]\n  },\n  {\n    cat: \"Financial Services\", \n    name: \"American Express\",\n    value: 80,\n    icon: \"../img/amex.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://careers.americanexpress.com/\",\n    children: [\n      { name: \"Software Engineer\", value: 30 },\n      { name: \"Software Developer\", value: 40 },\n      { name: \"Senior Engineer\", value: 10 }\n    ]\n  },\n  {\n    cat: \"Financial Services\",\n    name: \"Visa\",\n    value: 45,\n    icon: \"../img/visa.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://usa.visa.com/careers.html\",\n    children: [\n      { name: \"Software Engineer\", value: 10 },\n      { name: \"Software Developer\", value: 25 },\n      { name: \"Senior Engineer\", value: 10 }\n    ]\n  },\n  {\n    cat: \"Tech\",\n    name: \"Facebook\",\n    value: 100,\n    icon: \"../img/fb.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://www.facebook.com/careers/\",\n    children: [\n      { name: \"Software Engineer\", value: 30 },\n      { name: \"Software Developer\", value: 55 },\n      { name: \"Senior Engineer\", value: 15 }\n    ]\n  },\n  {\n    cat: \"Tech\",\n    name: \"Uber\",\n    value: 100,\n    icon: \"../img/uber.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://www.uber.com/us/en/careers/\",\n    children: [\n      { name: \"Software Engineer\", value: 20 },\n      { name: \"Software Developer\", value: 65 },\n      { name: \"Senior Engineer\", value: 15 }\n    ]\n  },\n  {\n    cat: \"Tech\",\n    name: \"Airbnb\",\n    value: 100,\n    icon: \"../img/airbnb.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://careers.airbnb.com/\",\n    children: [\n      { name: \"Software Engineer\", value: 20 },\n      { name: \"Software Developer\", value: 70 },\n      { name: \"Senior Engineer\", value: 10 }\n    ]\n  }, \n  {\n    cat: \"Tech\",\n    name: \"YouTube\",\n    value: 100,\n    icon: \"../img/youtube.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://www.youtube.com/jobs/\",\n    children: [\n      { name: \"Software Engineer\", value: 20 },\n      { name: \"Software Developer\", value: 60 },\n      { name: \"Senior Engineer\", value: 20 }\n    ]\n  }, \n  {\n    cat: \"Retail\",\n    name: \"McDonald's\",\n    value: 50,\n    icon: \"../img/mcdonalds.png\",\n    desc: \"Software Engineer\",\n    link: \"Learn More\",\n    linkUrl: \"https://careers.mcdonalds.com/main/\",\n    children: [\n      { name: \"Software Engineer\", value: 10 },\n      { name: \"Software Developer\", value: 30 },\n      { name: \"Senior Engineer\", value: 10 }\n    ]\n  }, \n  {\n    cat: \"Retail\",\n    name: \"Starbucks\",\n    value: 50,\n    icon: \"../img/starbucks.png\",\n    desc: \"Inspire positive change in the world while you grow in your career and in your community.\",\n    link: \"Learn More\",\n    linkUrl: \"https://www.starbucks.com/careers/\",\n    children: [\n      { name: \"Software Engineer\", value: 10 },\n      { name: \"Software Developer\", value: 35 },\n      { name: \"Senior Engineer\", value: 5 }\n    ]\n  }, \n  {\n    cat: \"Airlines\",\n    name: \"Southwest\",\n    value: 70,\n    icon: \"../img/southwest.png\",\n    desc: \"Share your interests and preferences for a personalized experience.\",\n    link: \"Learn More\",\n    linkUrl: \"https://careers.southwestair.com/\",\n    children: [\n      { name: \"Software Engineer\", value: 50 },\n      { name: \"Software Developer\", value: 15 },\n      { name: \"Senior Engineer\", value: 5 }\n    ]\n  },\n  {\n    cat: \"Arms\",\n    name: \"Boeing\",\n    value: 200,\n    icon: \"../img/boeing.png\",\n    desc: \"From the seabed to outer space, we are redefining the next generation.\",\n    link: \"Learn More\",\n    linkUrl: \"https://jobs.boeing.com/\",\n    children: [\n      { name: \"Software Engineer\", value: 150 },\n      { name: \"Software Developer\", value: 30 },\n      { name: \"Senior Engineer\", value: 20 }\n    ]\n  },\n];\n\nmodule.exports = data;\n\n//# sourceURL=webpack:///./src/data.js?");
+const data = [
+  {
+    cat: "Financial Services",
+    name: "JPMorgan",
+    value: 120,
+    icon: "./img/jpmorgan.png",
+    desc: "See how far your thinking can go.",
+    link: "Learn More",
+    linkUrl: "https://careers.jpmorgan.com/us/en/home",
+    children: [
+      {name: "Software Engineer", value: 50 },
+      {name: "Software Developer", value: 50 },
+      {name: "Senior Engineer", value: 20 }
+    ]
+  },
+  {
+    cat: "Education",
+    name: "UCSF",
+    value: 13,
+    icon: "./img/ucsf.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://www.ucsf.edu/about/working-ucsf",
+    children: [
+      { name: "Software Engineer", value: 3 },
+      { name: "Software Developer", value: 1 },
+      { name: "Senior Engineer", value: 7 }
+    ]
+  },
+  {
+    cat: "Education",
+    name: "UC Berkeley",
+    value: 30,
+    icon: "./img/berkeley.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://career.berkeley.edu/",
+    children: [
+      { name: "Software Engineer", value: 20 },
+      { name: "Software Developer", value: 5 },
+      { name: "Senior Engineer", value: 5 }
+    ]
+  },
+  {
+    cat: "Education",
+    name: "UC Davis",
+    value: 30,
+    icon: "./img/ucdavis.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://www.ucdavis.edu/jobs/",
+    children: [
+      { name: "Software Engineer", value: 10 },
+      { name: "Software Developer", value: 10 },
+      { name: "Senior Engineer", value: 10 }
+    ]
+  },
+  {
+    cat: "Tech",
+    name: "Google",
+    value: 400,
+    icon: "./img/google.png",
+    desc: 'Software Engineer',
+    link: "Learn More",
+    linkUrl: "https://careers.google.com/",
+    children: [
+      { name: "Software Engineer", value: 200 },
+      { name: "Software Developer", value: 150 },
+      { name: "Senior Engineer", value: 50 }
+    ]
+  },
+  {
+    cat: "Tech",
+    name: "Salesforce",
+    value: 300,
+    icon: "./img/salesforce.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://www.salesforce.com/company/careers/",
+    children: [
+      { name: "Software Engineer", value: 200 },
+      { name: "Software Developer", value: 50 },
+      { name: "Senior Engineer", value: 50 }
+    ]
+  },
+  {
+    cat: "Financial Services",
+    name: "Goldman Sachs",
+    value: 100,
+    icon: "./img/goldman.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://www.goldmansachs.com/careers/",
+    children: [
+      { name: "Software Engineer", value: 70 },
+      { name: "Software Developer", value: 20 },
+      { name: "Senior Engineer", value: 10 }
+    ]
+  },
+  {
+    cat: "Tech",
+    name: "Samsung",
+    value: 300,
+    icon: "./img/samsung.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://www.samsung.com/us/careers/",
+    children: [
+      { name: "Software Engineer", value: 250 },
+      { name: "Software Developer", value: 30 },
+      { name: "Senior Engineer", value: 20 }
+    ]
+  },
+  {
+    cat: "Biotech",
+    name: "Neuralink",
+    value: 40,
+    icon: "./img/neuralink.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://jobs.lever.co/neuralink",
+    children: [
+      { name: "Software Engineer", value: 25 },
+      { name: "Software Developer", value: 15 },
+      { name: "Senior Engineer", value: 10 }
+    ]
+  },
+  {
+    cat: "Financial Services",
+    name: "Capital One",
+    value: 200,
+    icon: "./img/capitalone.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://www.capitalonecareers.com/",
+    children: [
+      { name: "Software Engineer", value: 170 },
+      { name: "Software Developer", value: 20 },
+      { name: "Senior Engineer", value: 10 }
+    ]
+  },
+  {
+    cat: "Education",
+    name: "App Academy",
+    value: 20,
+    icon: "./img/aa.png",
+    desc: "Instructor",
+    link: "Learn More",
+    linkUrl: "https://jobs.lever.co/appacademy/",
+    children: [
+      { name: "Software Engineer", value: 10 },
+      { name: "Software Developer", value: 7 },
+      { name: "Senior Engineer", value: 3 }
+    ]
+  },
+  {
+    cat: "Tech",
+    name: "Microsoft",
+    value: 150,
+    icon: "./img/microsoft.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://careers.microsoft.com/us/en/",
+    children: [
+      { name: "Software Engineer", value: 100 },
+      { name: "Software Developer", value: 35 },
+      { name: "Senior Engineer", value: 15 }
+    ]
+  },
+  {
+    cat: "Tech",
+    name: "Apple",
+    value: 500,
+    icon: "./img/apple.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://www.apple.com/jobs/us/",
+    children: [
+      { name: "Software Engineer", value: 70 },
+      { name: "Software Developer", value: 15 },
+      { name: "Senior Engineer", value: 15 }
+    ]
+  },
+  {
+    cat: "Retail",
+    name: "Nordstrom",
+    value: 100,
+    icon: "./img/nordstrom.png",
+    desc: "Frontend Engineer",
+    link: "Learn More",
+    linkUrl: "https://careers.nordstrom.com/",
+    children: [
+      { name: "Software Engineer", value: 50 },
+      { name: "Software Developer", value: 48 },
+      { name: "Senior Engineer", value: 2 }
+    ]
+  },
+  {
+    cat: "Nonprofit",
+    name: "Bill & Melinda Gates Foundation",
+    value: 200,
+    icon: "./img/billgates.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://www.gatesfoundation.org/careers",
+    children: [
+      { name: "Software Engineer", value: 150 },
+      { name: "Software Developer", value: 35 },
+      { name: "Senior Engineer", value: 15 }
+    ]
+  },
+  {
+    cat: "Automotive",
+    name: "Tesla",
+    value: 65,
+    icon: "./img/tesla.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://www.tesla.com/careers",
+    children: [
+      { name: "Software Engineer", value: 30 },
+      { name: "Software Developer", value: 25 },
+      { name: "Senior Engineer", value: 10 }
+    ]
+  },
+  {
+    cat: "Financial Services", 
+    name: "American Express",
+    value: 80,
+    icon: "./img/amex.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://careers.americanexpress.com/",
+    children: [
+      { name: "Software Engineer", value: 30 },
+      { name: "Software Developer", value: 40 },
+      { name: "Senior Engineer", value: 10 }
+    ]
+  },
+  {
+    cat: "Financial Services",
+    name: "Visa",
+    value: 45,
+    icon: "./img/visa.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://usa.visa.com/careers.html",
+    children: [
+      { name: "Software Engineer", value: 10 },
+      { name: "Software Developer", value: 25 },
+      { name: "Senior Engineer", value: 10 }
+    ]
+  },
+  {
+    cat: "Tech",
+    name: "Facebook",
+    value: 100,
+    icon: "./img/fb.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://www.facebook.com/careers/",
+    children: [
+      { name: "Software Engineer", value: 30 },
+      { name: "Software Developer", value: 55 },
+      { name: "Senior Engineer", value: 15 }
+    ]
+  },
+  {
+    cat: "Tech",
+    name: "Uber",
+    value: 100,
+    icon: "./img/uber.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://www.uber.com/us/en/careers/",
+    children: [
+      { name: "Software Engineer", value: 20 },
+      { name: "Software Developer", value: 65 },
+      { name: "Senior Engineer", value: 15 }
+    ]
+  },
+  {
+    cat: "Tech",
+    name: "Airbnb",
+    value: 100,
+    icon: "./img/airbnb.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://careers.airbnb.com/",
+    children: [
+      { name: "Software Engineer", value: 20 },
+      { name: "Software Developer", value: 70 },
+      { name: "Senior Engineer", value: 10 }
+    ]
+  }, 
+  {
+    cat: "Tech",
+    name: "YouTube",
+    value: 100,
+    icon: "./img/youtube.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://www.youtube.com/jobs/",
+    children: [
+      { name: "Software Engineer", value: 20 },
+      { name: "Software Developer", value: 60 },
+      { name: "Senior Engineer", value: 20 }
+    ]
+  }, 
+  {
+    cat: "Retail",
+    name: "McDonald's",
+    value: 50,
+    icon: "./img/mcdonalds.png",
+    desc: "Software Engineer",
+    link: "Learn More",
+    linkUrl: "https://careers.mcdonalds.com/main/",
+    children: [
+      { name: "Software Engineer", value: 10 },
+      { name: "Software Developer", value: 30 },
+      { name: "Senior Engineer", value: 10 }
+    ]
+  }, 
+  {
+    cat: "Retail",
+    name: "Starbucks",
+    value: 50,
+    icon: "./img/starbucks.png",
+    desc: "Inspire positive change in the world while you grow in your career and in your community.",
+    link: "Learn More",
+    linkUrl: "https://www.starbucks.com/careers/",
+    children: [
+      { name: "Software Engineer", value: 10 },
+      { name: "Software Developer", value: 35 },
+      { name: "Senior Engineer", value: 5 }
+    ]
+  }, 
+  {
+    cat: "Airlines",
+    name: "Southwest",
+    value: 70,
+    icon: "./img/southwest.png",
+    desc: "Share your interests and preferences for a personalized experience.",
+    link: "Learn More",
+    linkUrl: "https://careers.southwestair.com/",
+    children: [
+      { name: "Software Engineer", value: 50 },
+      { name: "Software Developer", value: 15 },
+      { name: "Senior Engineer", value: 5 }
+    ]
+  },
+  {
+    cat: "Arms",
+    name: "Boeing",
+    value: 200,
+    icon: "./img/boeing.png",
+    desc: "From the seabed to outer space, we are redefining the next generation.",
+    link: "Learn More",
+    linkUrl: "https://jobs.boeing.com/",
+    children: [
+      { name: "Software Engineer", value: 150 },
+      { name: "Software Developer", value: 30 },
+      { name: "Senior Engineer", value: 20 }
+    ]
+  },
+];
+
+module.exports = data;
 
 /***/ }),
 
@@ -116,7 +588,231 @@ eval("const data = [\n  {\n    cat: \"Financial Services\",\n    name: \"JPMorga
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ \"./src/data.js\");\n/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_data__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _legend__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./legend */ \"./src/legend.js\");\n/* harmony import */ var _legend__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_legend__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _animate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./animate */ \"./src/animate.js\");\n/* harmony import */ var _animate__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_animate__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\nfunction Jobubbles() {\n  let svg = d3.select(\"svg\");\n  let width = document.body.clientWidth; // get width in pixels\n  let height = +svg.attr(\"height\"); \n  let centerX = width * 0.55;\n  let centerY = height * 0.5;\n  let focusedNode;\n\n  // let format = d3.format(\",d\");\n\n  // let scaleColor = d3.scaleOrdinal(d3.schemeCategory10);\n  let scaleColor = d3.scaleOrdinal([`#789c6e`, `#4c5f72`, `#1e3349`, `#a64960`, `#29586c`, `#1d456d`, `#85888b`, `#a9845c`, `#89c7d6`]) //`#6d6e41`\n\n  // use the force\n  let simulation = d3\n    .forceSimulation()\n    .force(\"charge\", d3.forceManyBody()) //attract force\n    .force(\"collide\", d3.forceCollide(d => d.r)) //collide force\n    .force(\"x\", d3.forceX(centerX))\n    .force(\"y\", d3.forceY(centerY));\n  \n  // reduce number of circles on mobile screen due to slow computation\n  // if (\n    //   \"matchMedia\" in window &&\n    //   window.matchMedia(\"(max-device-width: 767px)\").matches\n    // ) {\n      //   data = data.filter(el => {\n        //     return el.value >= 50;\n        //   });\n        // }\n        \n  // use pack to calculate radius of the circle\n  let pack = d3.pack().size([width, height]).padding(2);\n  let root = d3.hierarchy({ children: _data__WEBPACK_IMPORTED_MODULE_0___default.a }).sum(d => d.value);\n\n  // use pack() to automatically calculate radius conveniently only\n  // and get only the leaves\n  let nodes = pack(root)\n    .descendants() //.leaves() this gives nodes with no children\n    .filter(function(d) {\n      return d.depth === 1; // d.depth >= 1 to include children\n    })\n    .map(node => {\n      const data = node.data;\n      return {\n        x: centerX + (node.x - centerX) * 3, \n        // magnify start position to have transition to center movement\n        y: centerY + (node.y - centerY) * 3,\n        r: 0, // for tweening\n        radius: node.r, //original radius\n        id: data.cat + \".\" + data.name.replace(/\\s/g, \"-\"),\n        cat: data.cat,\n        name: data.name,\n        value: data.value,\n        icon: data.icon,\n        desc: data.desc,\n        link: data.link,\n        linkUrl: data.linkUrl,\n        children: node.children,\n        parent: node.parent\n      };\n    });\n  \n  simulation.nodes(nodes).on(\"tick\", ticked);\n\n  // svg.style(\"background-color\", \"transparent\");\n\n  let node = svg\n    .selectAll(\".node\")\n    .data(nodes)\n    .enter()\n    .append(\"g\")\n    .attr(\"class\", \"node\")\n    .call(\n      d3\n        .drag()\n        .on(\"start\", d => {\n          if (!d3.event.active) simulation.alphaTarget(0.2).restart();\n          d.fx = d.x;\n          d.fy = d.y;\n        })\n        .on(\"drag\", d => {\n          d.fx = d3.event.x;\n          d.fy = d3.event.y;\n        })\n        .on(\"end\", d => {\n          if (!d3.event.active) simulation.alphaTarget(0);\n          d.fx = null;\n          d.fy = null;\n        })\n    );\n\n  node\n    .append(\"circle\")\n    .attr(\"id\", d => d.id)\n    .attr(\"r\", 0)\n    .style(\"fill\", d => scaleColor(d.cat)) // color by category\n    .style(\"opacity\", 0.7)\n    .transition()\n    .duration(300)\n    // .ease(d3.easeElasticOut)\n    .tween(\"circleIn\", d => {\n      let i = d3.interpolateNumber(0, d.radius);\n      return t => {\n        d.r = i(t);\n        simulation.force(\"collide\", d3.forceCollide(d => d.r)); \n        //collision force treats nodes as circles with a given radius, rather than points\n      };\n    });\n\n  node\n    .append(\"clipPath\")\n    .attr(\"id\", d => `clip-${d.id}`)\n    .append(\"use\")\n    .attr(\"xlink:href\", d => `#${d.id}`);\n\n\n\n  // --------------------------------------------------------------------------------\n  // display text as circle icon\n  node\n    .filter(d => !String(d.name))\n    .append(\"text\")\n    .classed(\"node-icon\", true)\n    .attr(\"clip-path\", d => `url(#clip-${d.id})`)\n    .selectAll(\"tspan\")\n    .data(d => d.icon.split(\";\"))\n    .enter()\n    // .append(\"tspan\")\n    // .attr(\"x\", 0)\n    // .attr(\"y\", (d, i, nodes) => 13 + (i - nodes.length / 2 - 0.5) * 10)\n    // .text(name => name);\n\n\n  // --------------------------------------------------------------------------------\n  // display image as circle icon\n  node\n    .filter(d => String(d.name))\n    .append(\"image\")\n    .classed(\"node-icon\", true)\n    .attr(\"clip-path\", d => `url(#clip-${d.id})`)\n    .attr(\"xlink:href\", d => d.icon)\n    .attr(\"x\", d => -d.radius * 0.7)\n    .attr(\"y\", d => -d.radius * 0.7)\n    .attr(\"height\", d => d.radius * 2 * 0.7)\n    .attr(\"width\", d => d.radius * 2 * 0.7);\n\n  // node\n  //   .append(\"title\")\n  //   .text(d => d.cat + \"::\" + d.name + \"\\n\" + format(d.value));\n\n  // --------------------------------------------------------------------------------\n\n  // another file\n  _legend__WEBPACK_IMPORTED_MODULE_1___default()(scaleColor, svg);\n\n  \n  // --------------------------------------------------------------------------------\n    \n  let infoBox = node\n    .append(\"foreignObject\")\n    .classed(\"circle-overlay hidden\", true)\n    .attr(\"x\", -550 * 0.5 * 0.8) // location inside the circle\n    .attr(\"y\", -200 * 0.5 * 0.8)\n    .attr(\"height\", 350 * 0.8) // inner part\n    .attr(\"width\", 550 * 0.8) // inner part\n    .append(\"xhtml:div\")\n    .classed(\"circle-overlay__inner\", true);\n\n  infoBox\n    .append(\"h2\")\n    .classed(\"circle-overlay__title\", true)\n    .text(d => d.name);\n\n  infoBox\n    .append(\"p\")\n    .classed(\"circle-overlay__body\", true)\n    .html(d => d.value + ` openings`);\n  \n  infoBox\n    .append(\"a\")\n    .classed(\"circle-overlay__bottom\", true)\n    .html(d => d.link)\n    .attr('href', d => d.linkUrl);\n\n  // --------------------------------------------------------------------------------\n  \n  // another file\n  _animate__WEBPACK_IMPORTED_MODULE_2___default()(node, focusedNode, simulation, centerX, centerY);\n\n\n  // --------------------------------------------------------------------------------\n    \n\n  function ticked() {\n    node\n      .attr(\"transform\", d => `translate(${d.x},${d.y})`)\n      .select(\"circle\")\n      .attr(\"r\", d => d.r);\n  }\n\n}\n\n\nJobubbles();\n\n\n\ndocument.addEventListener('DOMContentLoaded', () => {\n  document.querySelectorAll(\".legendCells > g\").forEach((el, idx) => {\n    el.setAttribute('id', idx);\n  });\n})\n\n\n//# sourceURL=webpack:///./src/index.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ "./src/data.js");
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_data__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _legend__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./legend */ "./src/legend.js");
+/* harmony import */ var _legend__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_legend__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _animate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./animate */ "./src/animate.js");
+/* harmony import */ var _animate__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_animate__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+function Jobubbles() {
+  let svg = d3.select("svg");
+  let width = document.body.clientWidth; // get width in pixels
+  let height = +svg.attr("height"); 
+  let centerX = width * 0.55;
+  let centerY = height * 0.5;
+  let focusedNode;
+
+  // let format = d3.format(",d");
+
+  // let scaleColor = d3.scaleOrdinal(d3.schemeCategory10);
+  let scaleColor = d3.scaleOrdinal([`#789c6e`, `#4c5f72`, `#1e3349`, `#a64960`, `#29586c`, `#1d456d`, `#85888b`, `#a9845c`, `#89c7d6`]) //`#6d6e41`
+
+  // use the force
+  let simulation = d3
+    .forceSimulation()
+    .force("charge", d3.forceManyBody()) //attract force
+    .force("collide", d3.forceCollide(d => d.r)) //collide force
+    .force("x", d3.forceX(centerX))
+    .force("y", d3.forceY(centerY));
+  
+  // reduce number of circles on mobile screen due to slow computation
+  // if (
+    //   "matchMedia" in window &&
+    //   window.matchMedia("(max-device-width: 767px)").matches
+    // ) {
+      //   data = data.filter(el => {
+        //     return el.value >= 50;
+        //   });
+        // }
+        
+  // use pack to calculate radius of the circle
+  let pack = d3.pack().size([width, height]).padding(2);
+  let root = d3.hierarchy({ children: _data__WEBPACK_IMPORTED_MODULE_0___default.a }).sum(d => d.value);
+
+  // use pack() to automatically calculate radius conveniently only
+  // and get only the leaves
+  let nodes = pack(root)
+    .descendants() //.leaves() this gives nodes with no children
+    .filter(function(d) {
+      return d.depth === 1; // d.depth >= 1 to include children
+    })
+    .map(node => {
+      const data = node.data;
+      return {
+        x: centerX + (node.x - centerX) * 3, 
+        // magnify start position to have transition to center movement
+        y: centerY + (node.y - centerY) * 3,
+        r: 0, // for tweening
+        radius: node.r, //original radius
+        id: data.cat + "." + data.name.replace(/\s/g, "-"),
+        cat: data.cat,
+        name: data.name,
+        value: data.value,
+        icon: data.icon,
+        desc: data.desc,
+        link: data.link,
+        linkUrl: data.linkUrl,
+        children: node.children,
+        parent: node.parent
+      };
+    });
+  
+  simulation.nodes(nodes).on("tick", ticked);
+
+  // svg.style("background-color", "transparent");
+
+  let node = svg
+    .selectAll(".node")
+    .data(nodes)
+    .enter()
+    .append("g")
+    .attr("class", "node")
+    .call(
+      d3
+        .drag()
+        .on("start", d => {
+          if (!d3.event.active) simulation.alphaTarget(0.2).restart();
+          d.fx = d.x;
+          d.fy = d.y;
+        })
+        .on("drag", d => {
+          d.fx = d3.event.x;
+          d.fy = d3.event.y;
+        })
+        .on("end", d => {
+          if (!d3.event.active) simulation.alphaTarget(0);
+          d.fx = null;
+          d.fy = null;
+        })
+    );
+
+  node
+    .append("circle")
+    .attr("id", d => d.id)
+    .attr("r", 0)
+    .style("fill", d => scaleColor(d.cat)) // color by category
+    .style("opacity", 0.7)
+    .transition()
+    .duration(300)
+    // .ease(d3.easeElasticOut)
+    .tween("circleIn", d => {
+      let i = d3.interpolateNumber(0, d.radius);
+      return t => {
+        d.r = i(t);
+        simulation.force("collide", d3.forceCollide(d => d.r)); 
+        //collision force treats nodes as circles with a given radius, rather than points
+      };
+    });
+
+  node
+    .append("clipPath")
+    .attr("id", d => `clip-${d.id}`)
+    .append("use")
+    .attr("xlink:href", d => `#${d.id}`);
+
+
+
+  // --------------------------------------------------------------------------------
+  // display text as circle icon
+  node
+    .filter(d => !String(d.name))
+    .append("text")
+    .classed("node-icon", true)
+    .attr("clip-path", d => `url(#clip-${d.id})`)
+    .selectAll("tspan")
+    .data(d => d.icon.split(";"))
+    .enter()
+    // .append("tspan")
+    // .attr("x", 0)
+    // .attr("y", (d, i, nodes) => 13 + (i - nodes.length / 2 - 0.5) * 10)
+    // .text(name => name);
+
+
+  // --------------------------------------------------------------------------------
+  // display image as circle icon
+  node
+    .filter(d => String(d.name))
+    .append("image")
+    .classed("node-icon", true)
+    .attr("clip-path", d => `url(#clip-${d.id})`)
+    .attr("xlink:href", d => d.icon)
+    .attr("x", d => -d.radius * 0.7)
+    .attr("y", d => -d.radius * 0.7)
+    .attr("height", d => d.radius * 2 * 0.7)
+    .attr("width", d => d.radius * 2 * 0.7);
+
+  // node
+  //   .append("title")
+  //   .text(d => d.cat + "::" + d.name + "\n" + format(d.value));
+
+  // --------------------------------------------------------------------------------
+
+  // another file
+  _legend__WEBPACK_IMPORTED_MODULE_1___default()(scaleColor, svg);
+
+  
+  // --------------------------------------------------------------------------------
+    
+  let infoBox = node
+    .append("foreignObject")
+    .classed("circle-overlay hidden", true)
+    .attr("x", -550 * 0.5 * 0.8) // location inside the circle
+    .attr("y", -200 * 0.5 * 0.8)
+    .attr("height", 350 * 0.8) // inner part
+    .attr("width", 550 * 0.8) // inner part
+    .append("xhtml:div")
+    .classed("circle-overlay__inner", true);
+
+  infoBox
+    .append("h2")
+    .classed("circle-overlay__title", true)
+    .text(d => d.name);
+
+  infoBox
+    .append("p")
+    .classed("circle-overlay__body", true)
+    .html(d => d.value + ` openings`);
+  
+  infoBox
+    .append("a")
+    .classed("circle-overlay__bottom", true)
+    .html(d => d.link)
+    .attr('href', d => d.linkUrl);
+
+  // --------------------------------------------------------------------------------
+  
+  // another file
+  _animate__WEBPACK_IMPORTED_MODULE_2___default()(node, focusedNode, simulation, centerX, centerY);
+
+
+  // --------------------------------------------------------------------------------
+    
+
+  function ticked() {
+    node
+      .attr("transform", d => `translate(${d.x},${d.y})`)
+      .select("circle")
+      .attr("r", d => d.r);
+  }
+
+}
+
+
+Jobubbles();
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll(".legendCells > g").forEach((el, idx) => {
+    el.setAttribute('id', idx);
+  });
+})
+
 
 /***/ }),
 
@@ -127,8 +823,52 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dat
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("function Legend(scaleColor, svg) {\n    \n    // --------------------------------------------------------------------------------\n    // company categories\n\n    let legendOrdinal = d3\n        .legendColor()\n        .scale(scaleColor)\n        .shape(\"circle\");\n    \n    \n    let legend = svg\n        .append(\"g\")\n        .classed(\"legend-color\", true)\n        .attr(\"text-anchor\", \"start\")\n        .attr(\"transform\", \"translate(100, 100)\") //left num = x axis, right num = y axis\n        .style(\"font-size\", \"20px\")\n        .call(legendOrdinal);\n    \n    \n    // --------------------------------------------------------------------------------\n    // less openings, more openings\n    \n    let sizeScale = d3\n        .scaleOrdinal()\n        .domain([\"More openings\", \"Less openings\"])\n        .range([20, 10]);\n    \n    let legendSize = d3\n        .legendSize()\n        .scale(sizeScale)\n        .shape(\"circle\")\n        .labelAlign(\"end\");\n    \n    let legend2 = svg\n        .append(\"g\")\n        .classed(\"legend-size\", true)\n        .attr(\"text-anchor\", \"start\")\n        .attr(\"transform\", \"translate(100, 400)\") //left num = x axis, right num = y axis\n        .style(\"font-size\", \"20px\")\n        .call(legendSize);\n}\n\nmodule.exports = Legend;\n\n//# sourceURL=webpack:///./src/legend.js?");
+function Legend(scaleColor, svg) {
+    
+    // --------------------------------------------------------------------------------
+    // company categories
+
+    let legendOrdinal = d3
+        .legendColor()
+        .scale(scaleColor)
+        .shape("circle");
+    
+    
+    let legend = svg
+        .append("g")
+        .classed("legend-color", true)
+        .attr("text-anchor", "start")
+        .attr("transform", "translate(100, 100)") //left num = x axis, right num = y axis
+        .style("font-size", "20px")
+        .call(legendOrdinal);
+    
+    
+    // --------------------------------------------------------------------------------
+    // less openings, more openings
+    
+    let sizeScale = d3
+        .scaleOrdinal()
+        .domain(["More openings", "Less openings"])
+        .range([20, 10]);
+    
+    let legendSize = d3
+        .legendSize()
+        .scale(sizeScale)
+        .shape("circle")
+        .labelAlign("end");
+    
+    let legend2 = svg
+        .append("g")
+        .classed("legend-size", true)
+        .attr("text-anchor", "start")
+        .attr("transform", "translate(100, 400)") //left num = x axis, right num = y axis
+        .style("font-size", "20px")
+        .call(legendSize);
+}
+
+module.exports = Legend;
 
 /***/ })
 
 /******/ });
+//# sourceMappingURL=main.js.map

@@ -6,6 +6,7 @@ const config = {
   output: {
     filename: "main.js",
     path: path.join(__dirname, "./dist"),
+    publicPath: "/Jobubbles/"
   },
   plugins: [new webpack.ProgressPlugin()],
   devtool: "source-map"

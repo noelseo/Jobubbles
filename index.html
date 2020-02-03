@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    
+        <!-- snow effect -->
     <!-- <div class="snow snow--near"></div>
         <div class="snow snow--near snow--alt"></div>
         
@@ -20,13 +20,35 @@
         <div class="snow snow--far snow--alt"></div> -->
         
 
+
+
+
+
+
+
+
+        <!-- video -->
         <video autoplay muted loop id="video">
             <source src="./video.mp4" type="video/mp4">
         </video>
 
+
+
+
+
+
+        <!-- main -->
         <div id="outer-div">
-            <h1>Get hired </h1>
-            <div id="noel">
+            <div id="top-left">
+                <h1>Get hired </h1>
+            </div>
+
+            <div id="top-right">
+                <!-- audio -->
+                <audio controls autoplay id="music" style="width: 100px">
+                    <source src="./music.mp3" type="audio/mp3">
+                </audio>
+
                 <a href="https://github.com/noelseo/Jobubbles">
                     <img src="./img/github.png" width="75px" height="73px" id="github" />
                 </a>
@@ -36,13 +58,45 @@
             </div>
         </div>
         
-        
         <script src="./js/d3.min.js"></script>
         <script src="./js/d3-legend.min.js"></script>
         
-        
         <svg width="100%" height="650" text-anchor="middle"></svg>
         
+
+
+
+
+
+
+
+        <!-- Modal -->
+        <div class="modal">
+            <div class="modal-content">
+                <div id='welcome'>About Jobubbles
+                    <br>
+                    <br>
+                    <p>
+                        Jobubbles provides a data visualization of the current job openings for large companies shown on Indeed.com.
+                    </p>
+                    <p>
+                        Click on each bubble to see how many openings there are for each company and start applying!
+                    </p>
+                    <p>
+                        You can also move around the bubbles by dragging.
+                    </p>
+                    <p>
+                        Don't forget to play the music!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
     <script id="main" src="./dist/main.js"></script>
 </body>
 </html>

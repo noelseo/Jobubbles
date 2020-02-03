@@ -205,13 +205,34 @@ function Jobubbles() {
 
 }
 
-
-Jobubbles();
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll(".legendCells > g").forEach((el, idx) => {
-    el.setAttribute('id', idx);
-  });
+  Jobubbles();
+
+
+  // modal
+  let modalBtn = document.getElementById("top-left");
+  let modal = document.querySelector(".modal");
+
+  modalBtn.onclick = function () {
+    modal.style.display = "block";
+  };
+  window.onclick = function (e) {
+    if (e.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+  modal.style.display = "block";
+
 })
+
+// Jobubbles();
+
+
+// for separating legend company names 
+// for giving each g index number
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   document.querySelectorAll(".legendCells > g").forEach((el, idx) => {
+//     el.setAttribute('id', idx);
+//   });
+// })

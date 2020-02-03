@@ -77,7 +77,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/Jobubbles/";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -216,7 +216,7 @@ const data = [
     value: 120,
     icon: "./img/jpmorgan.png",
     desc: "See how far your thinking can go.",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://careers.jpmorgan.com/us/en/home",
     children: [
       {name: "Software Engineer", value: 50 },
@@ -230,7 +230,7 @@ const data = [
     value: 13,
     icon: "./img/ucsf.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://www.ucsf.edu/about/working-ucsf",
     children: [
       { name: "Software Engineer", value: 3 },
@@ -244,7 +244,7 @@ const data = [
     value: 30,
     icon: "./img/berkeley.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://career.berkeley.edu/",
     children: [
       { name: "Software Engineer", value: 20 },
@@ -258,7 +258,7 @@ const data = [
     value: 30,
     icon: "./img/ucdavis.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://www.ucdavis.edu/jobs/",
     children: [
       { name: "Software Engineer", value: 10 },
@@ -272,7 +272,7 @@ const data = [
     value: 400,
     icon: "./img/google.png",
     desc: 'Software Engineer',
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://careers.google.com/",
     children: [
       { name: "Software Engineer", value: 200 },
@@ -286,7 +286,7 @@ const data = [
     value: 300,
     icon: "./img/salesforce.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://www.salesforce.com/company/careers/",
     children: [
       { name: "Software Engineer", value: 200 },
@@ -300,7 +300,7 @@ const data = [
     value: 100,
     icon: "./img/goldman.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://www.goldmansachs.com/careers/",
     children: [
       { name: "Software Engineer", value: 70 },
@@ -314,7 +314,7 @@ const data = [
     value: 300,
     icon: "./img/samsung.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://www.samsung.com/us/careers/",
     children: [
       { name: "Software Engineer", value: 250 },
@@ -328,7 +328,7 @@ const data = [
     value: 40,
     icon: "./img/neuralink.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://jobs.lever.co/neuralink",
     children: [
       { name: "Software Engineer", value: 25 },
@@ -342,7 +342,7 @@ const data = [
     value: 200,
     icon: "./img/capitalone.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://www.capitalonecareers.com/",
     children: [
       { name: "Software Engineer", value: 170 },
@@ -356,7 +356,7 @@ const data = [
     value: 20,
     icon: "./img/aa.png",
     desc: "Instructor",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://jobs.lever.co/appacademy/",
     children: [
       { name: "Software Engineer", value: 10 },
@@ -370,7 +370,7 @@ const data = [
     value: 150,
     icon: "./img/microsoft.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://careers.microsoft.com/us/en/",
     children: [
       { name: "Software Engineer", value: 100 },
@@ -384,7 +384,7 @@ const data = [
     value: 500,
     icon: "./img/apple.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://www.apple.com/jobs/us/",
     children: [
       { name: "Software Engineer", value: 70 },
@@ -398,7 +398,7 @@ const data = [
     value: 100,
     icon: "./img/nordstrom.png",
     desc: "Frontend Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://careers.nordstrom.com/",
     children: [
       { name: "Software Engineer", value: 50 },
@@ -412,7 +412,7 @@ const data = [
     value: 200,
     icon: "./img/billgates.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://www.gatesfoundation.org/careers",
     children: [
       { name: "Software Engineer", value: 150 },
@@ -426,7 +426,7 @@ const data = [
     value: 65,
     icon: "./img/tesla.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://www.tesla.com/careers",
     children: [
       { name: "Software Engineer", value: 30 },
@@ -440,7 +440,7 @@ const data = [
     value: 80,
     icon: "./img/amex.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://careers.americanexpress.com/",
     children: [
       { name: "Software Engineer", value: 30 },
@@ -454,7 +454,7 @@ const data = [
     value: 45,
     icon: "./img/visa.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://usa.visa.com/careers.html",
     children: [
       { name: "Software Engineer", value: 10 },
@@ -468,7 +468,7 @@ const data = [
     value: 100,
     icon: "./img/fb.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://www.facebook.com/careers/",
     children: [
       { name: "Software Engineer", value: 30 },
@@ -482,7 +482,7 @@ const data = [
     value: 100,
     icon: "./img/uber.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://www.uber.com/us/en/careers/",
     children: [
       { name: "Software Engineer", value: 20 },
@@ -496,7 +496,7 @@ const data = [
     value: 100,
     icon: "./img/airbnb.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://careers.airbnb.com/",
     children: [
       { name: "Software Engineer", value: 20 },
@@ -510,7 +510,7 @@ const data = [
     value: 100,
     icon: "./img/youtube.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://www.youtube.com/jobs/",
     children: [
       { name: "Software Engineer", value: 20 },
@@ -524,7 +524,7 @@ const data = [
     value: 50,
     icon: "./img/mcdonalds.png",
     desc: "Software Engineer",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://careers.mcdonalds.com/main/",
     children: [
       { name: "Software Engineer", value: 10 },
@@ -538,7 +538,7 @@ const data = [
     value: 50,
     icon: "./img/starbucks.png",
     desc: "Inspire positive change in the world while you grow in your career and in your community.",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://www.starbucks.com/careers/",
     children: [
       { name: "Software Engineer", value: 10 },
@@ -552,7 +552,7 @@ const data = [
     value: 70,
     icon: "./img/southwest.png",
     desc: "Share your interests and preferences for a personalized experience.",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://careers.southwestair.com/",
     children: [
       { name: "Software Engineer", value: 50 },
@@ -561,12 +561,12 @@ const data = [
     ]
   },
   {
-    cat: "Arms",
+    cat: "Aerospace",
     name: "Boeing",
     value: 200,
     icon: "./img/boeing.png",
     desc: "From the seabed to outer space, we are redefining the next generation.",
-    link: "Learn More",
+    link: "Apply Now",
     linkUrl: "https://jobs.boeing.com/",
     children: [
       { name: "Software Engineer", value: 150 },
@@ -802,16 +802,37 @@ function Jobubbles() {
 
 }
 
-
-Jobubbles();
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll(".legendCells > g").forEach((el, idx) => {
-    el.setAttribute('id', idx);
-  });
+  Jobubbles();
+
+
+  // modal
+  let modalBtn = document.getElementById("top-left");
+  let modal = document.querySelector(".modal");
+
+  modalBtn.onclick = function () {
+    modal.style.display = "block";
+  };
+  window.onclick = function (e) {
+    if (e.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+  modal.style.display = "block";
+
 })
+
+// Jobubbles();
+
+
+// for separating legend company names 
+// for giving each g index number
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   document.querySelectorAll(".legendCells > g").forEach((el, idx) => {
+//     el.setAttribute('id', idx);
+//   });
+// })
 
 
 /***/ }),

@@ -170,16 +170,14 @@ g {
     position: relative; 
     background-color: rgba(39, 101, 167, 0.8);
     padding: 20px; 
-    margin-left: 75%;
     width: 20%;
-    height: 40%; 
+    margin: auto;
     text-align: center;
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.1s;
     animation-name: animatetop;
     animation-duration: 0.1s;
-    border-radius: 100px 100px 100px 0px;
-    transform: rotate(10deg);
+    border-radius: 50px;
 
 }
 

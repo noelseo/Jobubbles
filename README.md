@@ -4,6 +4,8 @@ Jobubbles is a data visualization of the current job openings of large companies
 
 [Live Demo](https://noelseo.github.io/Jobubbles/)
 
+![Jobubbles Main](./jobubbles.gif)
+
 ## Technologies
 * `JavaScript` for Framework
 * `HTML` and `CSS`

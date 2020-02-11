@@ -10,12 +10,12 @@ Jobubbles is a data visualization of the current job openings of large companies
 * `JavaScript` for Framework
 * `HTML` and `CSS`
 * `Indeed API` for Data Retrieval
-* `D3.js` for data visualization
+* `D3.js` for Data Visualization
 
 ## Features and MVPs
 
-### Bubbles and Legend Generating Different Colors Based on Company Industry
-* Bubbles and Legend are created with different colors with the D3.js's scaleOrdinal method
+### Bubbles and Legends Generating Different Colors Based on Company Industry
+* Bubbles and Legends are created with different colors with the D3.js's scaleOrdinal method
 
 ```javascript
     let scaleColor = d3.scaleOrdinal([`#789c6e`, `#4c5f72`, `#1e3349`, `#a64960`, `#29586c`, `#1d456d`, `#85888b`, `#a9845c`, `#89c7d6`]) 
@@ -49,8 +49,8 @@ Jobubbles is a data visualization of the current job openings of large companies
 ```
 
 ### Bubble Movements
-* Ability to click on bubbles that will expand to the size based on the number of the openings
-* Ability to drag bubbles and rearrange them
+* When clicking on bubbles, they will expand to the size based on the number of the openings
+* Bubbles are draggable and can be rearranged
 
 ![Expand](./README/expand.gif)
 ![Drag](./README/drag.gif)
@@ -90,7 +90,7 @@ Jobubbles is a data visualization of the current job openings of large companies
 ```
 
 ### Links to Company's Careers Site
-* Each company bubble provides a direct link to the company's careers site
+* Each company bubble provides a direct link to its careers site
 
 ![Apply](./README/apply.gif)
 

@@ -60,8 +60,8 @@ function Jobubbles() {
                 desc: data.desc,
                 link: data.link,
                 linkUrl: data.linkUrl,
-                children: node.children,
-                parent: node.parent
+                company: data.company,
+                companyUrl: data.companyUrl
             };
         });
 
@@ -98,7 +98,7 @@ function Jobubbles() {
         .append("circle")
         .attr("id", d => d.id)
         .attr("r", 0)
-        .style("fill", d => scaleColor(d.cat)) // color by category
+        .style("fill", d => scaleColor(d.cat)) //color by category
         .style("opacity", 0.7)
         .transition()
         .duration(300)
@@ -187,6 +187,13 @@ function Jobubbles() {
         .html(d => d.link)
         .attr('href', d => d.linkUrl)
         .attr("target", "_blank"); //open a new window for the link
+
+    infoBox
+        .append("a")
+        .classed("circle-overlay__bottom2", true)
+        .html(d => d.company)
+        .attr('href', d => d.companyUrl)
+        .attr("target", "_blank");
 
     // --------------------------------------------------------------------------------
 

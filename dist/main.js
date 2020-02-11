@@ -213,367 +213,312 @@ const data = [
   {
     cat: "Financial Services",
     name: "JPMorgan",
-    value: 120,
+    value: 807,
     icon: "./img/jpmorgan.png",
     desc: "See how far your thinking can go.",
     link: "Apply Now",
-    linkUrl: "https://careers.jpmorgan.com/us/en/home",
-    children: [
-      {name: "Software Engineer", value: 50 },
-      {name: "Software Developer", value: 50 },
-      {name: "Senior Engineer", value: 20 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=1067%2C1068&geoId=103644278&keywords=software&location=United%20States",
+    company: "Company Homepage",
+    companyUrl: "https://careers.jpmorgan.com/us/en/home"
   },
   {
     cat: "Education",
     name: "UCSF",
-    value: 13,
+    value: 248,
     icon: "./img/ucsf.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://www.ucsf.edu/about/working-ucsf",
-    children: [
-      { name: "Software Engineer", value: 3 },
-      { name: "Software Developer", value: 1 },
-      { name: "Senior Engineer", value: 7 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=3028%2C3029&geoId=103644278&keywords=software&location=United%20States",
+    company: "Company Homepage",
+    companyUrl: "https://www.ucsf.edu/about/working-ucsf"
   },
   {
     cat: "Education",
     name: "UC Berkeley",
-    value: 30,
+    value: 130,
     icon: "./img/berkeley.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://career.berkeley.edu/",
-    children: [
-      { name: "Software Engineer", value: 20 },
-      { name: "Software Developer", value: 5 },
-      { name: "Senior Engineer", value: 5 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=2517&geoId=103644278&keywords=software&location=United%20States",
+    company: "Company Homepage",
+    companyUrl: "https://career.berkeley.edu/"
   },
   {
     cat: "Education",
     name: "UC Davis",
-    value: 30,
+    value: 178,
     icon: "./img/ucdavis.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://www.ucdavis.edu/jobs/",
-    children: [
-      { name: "Software Engineer", value: 10 },
-      { name: "Software Developer", value: 10 },
-      { name: "Senior Engineer", value: 10 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=2840%2C2842%2C2844&geoId=103644278&keywords=software&location=United%20States",
+    company: "Company Homepage",
+    companyUrl: "https://www.ucdavis.edu/jobs/"
   },
   {
     cat: "Tech",
     name: "Google",
-    value: 400,
+    value: 1036,
     icon: "./img/google.png",
     desc: 'Software Engineer',
     link: "Apply Now",
-    linkUrl: "https://careers.google.com/",
-    children: [
-      { name: "Software Engineer", value: 200 },
-      { name: "Software Developer", value: 150 },
-      { name: "Senior Engineer", value: 50 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=1441&geoId=103644278&keywords=software&location=United%20States",
+    company: "Company Homepage",
+    companyUrl: "https://careers.google.com/"
   },
   {
     cat: "Tech",
     name: "Salesforce",
-    value: 300,
+    value: 1355,
     icon: "./img/salesforce.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://www.salesforce.com/company/careers/",
-    children: [
-      { name: "Software Engineer", value: 200 },
-      { name: "Software Developer", value: 50 },
-      { name: "Senior Engineer", value: 50 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=3185&geoId=103644278&keywords=software&location=United%20States",
+    company: "Company Homepage",
+    companyUrl: "https://www.salesforce.com/company/careers/"
   },
   {
     cat: "Financial Services",
     name: "Goldman Sachs",
-    value: 100,
+    value: 375,
     icon: "./img/goldman.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://www.goldmansachs.com/careers/",
-    children: [
-      { name: "Software Engineer", value: 70 },
-      { name: "Software Developer", value: 20 },
-      { name: "Senior Engineer", value: 10 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=1382&geoId=103644278&keywords=software&location=United%20States",
+    company: "Company Homepage",
+    companyUrl: "https://www.goldmansachs.com/careers/"
   },
   {
     cat: "Tech",
     name: "Samsung",
-    value: 300,
+    value: 239,
     icon: "./img/samsung.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://www.samsung.com/us/careers/",
-    children: [
-      { name: "Software Engineer", value: 250 },
-      { name: "Software Developer", value: 30 },
-      { name: "Senior Engineer", value: 20 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=1753%2C1447520%2C3781124&geoId=103644278&keywords=software&location=United%20States",
+    company: "Company Homepage",
+    companyUrl: "https://www.samsung.com/us/careers/"
   },
   {
     cat: "Biotech",
-    name: "Neuralink",
-    value: 40,
-    icon: "./img/neuralink.png",
+    name: "Amgen",
+    value: 168,
+    icon: "./img/amgen.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://jobs.lever.co/neuralink",
-    children: [
-      { name: "Software Engineer", value: 25 },
-      { name: "Software Developer", value: 15 },
-      { name: "Senior Engineer", value: 10 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=2068&geoId=103644278&keywords=software&location=United%20States",
+    company: "Company Homepage",
+    companyUrl: "https://careers.amgen.com/"
   },
   {
     cat: "Financial Services",
     name: "Capital One",
-    value: 200,
+    value: 622,
     icon: "./img/capitalone.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://www.capitalonecareers.com/",
-    children: [
-      { name: "Software Engineer", value: 170 },
-      { name: "Software Developer", value: 20 },
-      { name: "Senior Engineer", value: 10 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=1419&geoId=103644278&keywords=software&location=United%20States",
+    company: "Company Homepage",
+    companyUrl: "https://www.capitalonecareers.com/"
   },
   {
     cat: "Education",
     name: "App Academy",
-    value: 20,
+    value: 2,
     icon: "./img/aa.png",
     desc: "Instructor",
     link: "Apply Now",
-    linkUrl: "https://jobs.lever.co/appacademy/",
-    children: [
-      { name: "Software Engineer", value: 10 },
-      { name: "Software Developer", value: 7 },
-      { name: "Senior Engineer", value: 3 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=3113247&geoId=103644278&keywords=software&location=United%20States",
+    company: "Company Homepage",
+    companyUrl: "https://jobs.lever.co/appacademy/"
   },
   {
     cat: "Tech",
     name: "Microsoft",
-    value: 150,
+    value: 3225,
     icon: "./img/microsoft.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://careers.microsoft.com/us/en/",
-    children: [
-      { name: "Software Engineer", value: 100 },
-      { name: "Software Developer", value: 35 },
-      { name: "Senior Engineer", value: 15 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=1035&geoId=103644278&keywords=software&location=United%20States",
+    company: "Company Homepage",
+    companyUrl: "https://careers.microsoft.com/us/en/"
   },
   {
     cat: "Tech",
     name: "Apple",
-    value: 500,
+    value: 1983,
     icon: "./img/apple.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://www.apple.com/jobs/us/",
-    children: [
-      { name: "Software Engineer", value: 70 },
-      { name: "Software Developer", value: 15 },
-      { name: "Senior Engineer", value: 15 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=162479&geoId=103644278&keywords=software&location=United%20States",
+    company: "Company Homepage",
+    companyUrl: "https://www.apple.com/jobs/us/"
   },
   {
     cat: "Retail",
     name: "Nordstrom",
-    value: 100,
+    value: 161,
     icon: "./img/nordstrom.png",
     desc: "Frontend Engineer",
     link: "Apply Now",
-    linkUrl: "https://careers.nordstrom.com/",
-    children: [
-      { name: "Software Engineer", value: 50 },
-      { name: "Software Developer", value: 48 },
-      { name: "Senior Engineer", value: 2 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=3379&keywords=software",
+    company: "Company Homepage",
+    companyUrl: "https://careers.nordstrom.com/"
   },
   {
-    cat: "Nonprofit",
+    cat: "Philanthropy",
     name: "Bill & Melinda Gates Foundation",
-    value: 200,
+    value: 5,
     icon: "./img/billgates.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://www.gatesfoundation.org/careers",
-    children: [
-      { name: "Software Engineer", value: 150 },
-      { name: "Software Developer", value: 35 },
-      { name: "Senior Engineer", value: 15 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=8736&keywords=software",
+    company: "Company Homepage",
+    companyUrl: "https://www.gatesfoundation.org/careers"
   },
   {
     cat: "Automotive",
     name: "Tesla",
-    value: 65,
+    value: 553,
     icon: "./img/tesla.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://www.tesla.com/careers",
-    children: [
-      { name: "Software Engineer", value: 30 },
-      { name: "Software Developer", value: 25 },
-      { name: "Senior Engineer", value: 10 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=15564&keywords=software",
+    company: "Company Homepage",
+    companyUrl: "https://www.tesla.com/careers"
   },
   {
     cat: "Financial Services", 
     name: "American Express",
-    value: 80,
+    value: 183,
     icon: "./img/amex.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://careers.americanexpress.com/",
-    children: [
-      { name: "Software Engineer", value: 30 },
-      { name: "Software Developer", value: 40 },
-      { name: "Senior Engineer", value: 10 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=1277&keywords=software",
+    company: "Company Homepage",
+    companyUrl: "https://careers.americanexpress.com/"
   },
   {
     cat: "Financial Services",
     name: "Visa",
-    value: 45,
+    value: 297,
     icon: "./img/visa.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://usa.visa.com/careers.html",
-    children: [
-      { name: "Software Engineer", value: 10 },
-      { name: "Software Developer", value: 25 },
-      { name: "Senior Engineer", value: 10 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=2190&keywords=software",
+    company: "Company Homepage",
+    companyUrl: "https://usa.visa.com/careers.html"
   },
   {
     cat: "Tech",
     name: "Facebook",
-    value: 100,
+    value: 1072,
     icon: "./img/fb.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://www.facebook.com/careers/",
-    children: [
-      { name: "Software Engineer", value: 30 },
-      { name: "Software Developer", value: 55 },
-      { name: "Senior Engineer", value: 15 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=10667&keywords=software",
+    company: "Company Homepage",
+    companyUrl: "https://www.facebook.com/careers/"
   },
   {
     cat: "Tech",
     name: "Uber",
-    value: 100,
+    value: 238,
     icon: "./img/uber.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://www.uber.com/us/en/careers/",
-    children: [
-      { name: "Software Engineer", value: 20 },
-      { name: "Software Developer", value: 65 },
-      { name: "Senior Engineer", value: 15 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=1815218&keywords=software",
+    company: "Company Homepage",
+    companyUrl: "https://www.uber.com/us/en/careers/"
   },
   {
     cat: "Tech",
     name: "Airbnb",
-    value: 100,
+    value: 35,
     icon: "./img/airbnb.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://careers.airbnb.com/",
-    children: [
-      { name: "Software Engineer", value: 20 },
-      { name: "Software Developer", value: 70 },
-      { name: "Senior Engineer", value: 10 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=309694&keywords=software",
+    company: "Company Homepage",
+    companyUrl: "https://careers.airbnb.com/"
   }, 
   {
     cat: "Tech",
     name: "YouTube",
-    value: 100,
+    value: 16,
     icon: "./img/youtube.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://www.youtube.com/jobs/",
-    children: [
-      { name: "Software Engineer", value: 20 },
-      { name: "Software Developer", value: 60 },
-      { name: "Senior Engineer", value: 20 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=16140%2C1747859%2C29004510&keywords=software",
+    company: "Company Homepage",
+    companyUrl: "https://www.youtube.com/jobs/"
   }, 
   {
     cat: "Retail",
     name: "McDonald's",
-    value: 50,
+    value: 29,
     icon: "./img/mcdonalds.png",
     desc: "Software Engineer",
     link: "Apply Now",
-    linkUrl: "https://careers.mcdonalds.com/main/",
-    children: [
-      { name: "Software Engineer", value: 10 },
-      { name: "Software Developer", value: 30 },
-      { name: "Senior Engineer", value: 10 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=2677&keywords=software",
+    company: "Company Homepage",
+    companyUrl: "https://careers.mcdonalds.com/main/"
   }, 
   {
     cat: "Retail",
     name: "Starbucks",
-    value: 50,
+    value: 56,
     icon: "./img/starbucks.png",
     desc: "Inspire positive change in the world while you grow in your career and in your community.",
     link: "Apply Now",
-    linkUrl: "https://www.starbucks.com/careers/",
-    children: [
-      { name: "Software Engineer", value: 10 },
-      { name: "Software Developer", value: 35 },
-      { name: "Senior Engineer", value: 5 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=2271&keywords=software",
+    company: "Company Homepage",
+    companyUrl: "https://www.starbucks.com/careers/"
   }, 
   {
     cat: "Airlines",
     name: "Southwest",
-    value: 70,
+    value: 4,
     icon: "./img/southwest.png",
     desc: "Share your interests and preferences for a personalized experience.",
     link: "Apply Now",
-    linkUrl: "https://careers.southwestair.com/",
-    children: [
-      { name: "Software Engineer", value: 50 },
-      { name: "Software Developer", value: 15 },
-      { name: "Senior Engineer", value: 5 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=4599&keywords=software",
+    company: "Company Homepage",
+    companyUrl: "https://careers.southwestair.com/"
   },
   {
     cat: "Aerospace",
     name: "Boeing",
-    value: 200,
+    value: 555,
     icon: "./img/boeing.png",
     desc: "From the seabed to outer space, we are redefining the next generation.",
     link: "Apply Now",
-    linkUrl: "https://jobs.boeing.com/",
-    children: [
-      { name: "Software Engineer", value: 150 },
-      { name: "Software Developer", value: 30 },
-      { name: "Senior Engineer", value: 20 }
-    ]
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=1384&keywords=software",
+    company: "Company Homepage",
+    companyUrl: "https://jobs.boeing.com/"
   },
+  {
+    cat: "Tech",
+    name: "Twitter",
+    value: 244,
+    icon: "./img/twitter.png",
+    desc: "",
+    link: "Apply Now",
+    linkUrl: "https://www.linkedin.com/jobs/search/?f_C=96622&keywords=software",
+    company: "Company Homepage",
+    companyUrl: "https://careers.twitter.com/"
+  },
+  {
+    cat: "Tech",
+    name: "Adobe",
+    value: 313,
+    icon: "./img/adobe.png",
+    desc: "",
+    link: "Apply Now",
+    linkUrl: "https://www.adobe.com/careers.html",
+    company: "Company Homepage",
+    companyUrl: "https://careers.adobe.com/"
+  },
+
 ];
 
 module.exports = data;
@@ -657,8 +602,8 @@ function Jobubbles() {
                 desc: data.desc,
                 link: data.link,
                 linkUrl: data.linkUrl,
-                children: node.children,
-                parent: node.parent
+                company: data.company,
+                companyUrl: data.companyUrl
             };
         });
 
@@ -695,7 +640,7 @@ function Jobubbles() {
         .append("circle")
         .attr("id", d => d.id)
         .attr("r", 0)
-        .style("fill", d => scaleColor(d.cat)) // color by category
+        .style("fill", d => scaleColor(d.cat)) //color by category
         .style("opacity", 0.7)
         .transition()
         .duration(300)
@@ -784,6 +729,13 @@ function Jobubbles() {
         .html(d => d.link)
         .attr('href', d => d.linkUrl)
         .attr("target", "_blank"); //open a new window for the link
+
+    infoBox
+        .append("a")
+        .classed("circle-overlay__bottom2", true)
+        .html(d => d.company)
+        .attr('href', d => d.companyUrl)
+        .attr("target", "_blank");
 
     // --------------------------------------------------------------------------------
 

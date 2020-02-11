@@ -1,15 +1,9 @@
 # Jobubbles
+[<img src="./img/jobubbles1.png" width="100" align=center>](https://noelseo.github.io/Jobubbles/)
 
-Jobubbles is a data visualization of the current job openings of large companies displayed with interactive bubbles.
-
-&nbsp;
-
-### Live Demo
-[<img src="./img/bubble.png" width="80" align=center>](https://noelseo.github.io/Jobubbles/)
-
+Jobubbles is a data visualization of the current software related job openings of large companies on LinkedIn Jobs displayed with interactive bubbles.
 
 &nbsp;
-
 ![Jobubbles Main](./README/jobubbles.gif)
 
 ## Technologies
@@ -97,7 +91,7 @@ Jobubbles is a data visualization of the current job openings of large companies
 ```
 
 ### Links to Company's Careers Site
-* Each company bubble provides a direct link to its careers site
+* Each company bubble provides direct links to LinkedIn Jobs page and its careers page
 
 ![Apply](./README/apply.gif)
 

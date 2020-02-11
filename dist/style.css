@@ -29,23 +29,48 @@ html, body {
     justify-content: space-between;
 }
 
+#top-left {
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+h1 {
+    justify-content: left;
+    font-size: 40px;
+    margin-left: 50px;
+    padding-top: 10px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    /* reflection */
+    /* -webkit-box-reflect: below -20px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(230, 218, 218, 0.571))); */
+}
+
+h1:hover {
+    transform: scale(1.3);
+    
+}
+
+#logo {
+    opacity: 0.7;
+    padding-left: 20px;
+    cursor: pointer;
+
+    border-radius: 50%;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out;
+}
+
+#logo:hover {
+    transform: scale(1.4);
+
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
 #top-right {
     margin-right: 50px;
 }
-    h1 {
-        justify-content: left;
-        font-size: 40px;
-        margin-left: 50px;
-        margin-bottom: 0px;
-        cursor: pointer;
-
-        /* reflection */
-        /* -webkit-box-reflect: below -20px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(230, 218, 218, 0.571))); */
-    }
-
-    h1:hover {
-        transform: scale(1.3);
-    }
 
     #github {
         justify-content: right;
@@ -70,6 +95,15 @@ html, body {
         transition: background-color .5s;
     }
 
+
+
+
+
+
+
+
+
+
 svg {
     margin: auto;
     display: block;
@@ -78,18 +112,23 @@ svg {
 }
 
 p {
-    margin-bottom: 45px;
+    margin-bottom: 20px;
 }
-
 
 a {
     text-decoration: none;
     cursor: pointer;
-    color: #1e3349;
+    color: #96adc6;
 }
 
 a:hover {
     opacity: 0.5;
+}
+
+.circle-overlay__bottom2 {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
 }
 
 .circle-overlay {

@@ -4,10 +4,9 @@ Jobubbles is a data visualization of the current job openings of large companies
 
 &nbsp;
 
-### Click for Live Demo
-[<img src="./img/bubble.png" width="100" align=center>](https://noelseo.github.io/Jobubbles/)
+### Live Demo
+[<img src="./img/bubble.png" width="80" align=center>](https://noelseo.github.io/Jobubbles/)
 
-<!-- [Live Demo](https://noelseo.github.io/Jobubbles/) -->
 
 &nbsp;
 
@@ -16,7 +15,6 @@ Jobubbles is a data visualization of the current job openings of large companies
 ## Technologies
 * `JavaScript` for Framework
 * `HTML` and `CSS`
-* `Indeed API` for Data Retrieval
 * `D3.js` for Data Visualization
 
 ## Features and MVPs
@@ -108,7 +106,8 @@ Jobubbles is a data visualization of the current job openings of large companies
         .append("a")
         .classed("circle-overlay__bottom", true)
         .html(d => d.link)
-        .attr('href', d => d.linkUrl);
+        .attr('href', d => d.linkUrl)
+        .attr("target", "_blank");
 ```
 
 

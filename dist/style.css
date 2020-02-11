@@ -38,10 +38,13 @@ html, body {
         margin-left: 50px;
         margin-bottom: 0px;
         cursor: pointer;
+
+        /* reflection */
+        /* -webkit-box-reflect: below -20px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(230, 218, 218, 0.571))); */
     }
 
     h1:hover {
-        transform: scale(1.4);
+        transform: scale(1.3);
     }
 
     #github {

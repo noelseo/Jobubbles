@@ -782,7 +782,8 @@ function Jobubbles() {
         .append("a")
         .classed("circle-overlay__bottom", true)
         .html(d => d.link)
-        .attr('href', d => d.linkUrl);
+        .attr('href', d => d.linkUrl)
+        .attr("target", "_blank"); //open a new window for the link
 
     // --------------------------------------------------------------------------------
 

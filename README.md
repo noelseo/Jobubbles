@@ -2,7 +2,14 @@
 
 Jobubbles is a data visualization of the current job openings of large companies displayed with interactive bubbles.
 
-[Live Demo](https://noelseo.github.io/Jobubbles/)
+&nbsp;
+
+### Click for Live Demo
+[<img src="./img/bubble.png" width="100" align=center>](https://noelseo.github.io/Jobubbles/)
+
+<!-- [Live Demo](https://noelseo.github.io/Jobubbles/) -->
+
+&nbsp;
 
 ![Jobubbles Main](./README/jobubbles.gif)
 
@@ -50,9 +57,11 @@ Jobubbles is a data visualization of the current job openings of large companies
 
 ### Bubble Movements
 * When clicking on bubbles, they will expand to the size based on the number of the openings
-* Bubbles are draggable and can be rearranged
 
 ![Expand](./README/expand.gif)
+
+* Bubbles are draggable and can be rearranged
+
 ![Drag](./README/drag.gif)
 
 ```javascript

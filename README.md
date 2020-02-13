@@ -1,7 +1,7 @@
 # Jobubbles
 [<img src="./img/jobubbles1.png" width="100" align=center>](https://noelseo.github.io/Jobubbles/)
 
-Jobubbles is a data visualization of the current software related job openings of large companies on LinkedIn Jobs displayed with interactive bubbles.
+### Jobubbles is a data visualization of the current software related job openings of large companies on LinkedIn Jobs displayed with interactive bubbles.
 
 &nbsp;
 ![Jobubbles Main](./README/jobubbles.gif)
@@ -91,10 +91,8 @@ Jobubbles is a data visualization of the current software related job openings o
 ```
 
 ### Links to Company's Careers Site
-* Each company bubble provides direct links to LinkedIn Jobs page and its careers page
-
-![Apply](./README/apply.gif)
-
+* Each bubble provides a direct link to the specific company's searched list
+![LinkedIn](./README/linkedin.gif)
 ```javascript
     infoBox
         .append("a")
@@ -104,6 +102,20 @@ Jobubbles is a data visualization of the current software related job openings o
         .attr("target", "_blank");
 ```
 
+&nbsp;
+&nbsp;
+
+
+* Each bubble provides a direct link to the company's careers page
+![Careers](./README/careers.gif)
+```javascript
+    infoBox
+        .append("a")
+        .classed("circle-overlay__bottom2", true)
+        .html(d => d.company)
+        .attr('href', d => d.companyUrl)
+        .attr("target", "_blank");
+```
 
 ## Future Plans
 * Get API approval from Indeed and implement the actual data [Indeed Job Api](https://opensource.indeedeng.io/api-documentation/docs/get-job/)

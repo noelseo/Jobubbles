@@ -2,7 +2,7 @@ const data = [
   {
     cat: "Financial Services",
     name: "JPMorgan",
-    value: 807,
+    value: 973,
     icon: "./img/jpmorgan.png",
     desc: "See how far your thinking can go.",
     link: "Apply Now",
@@ -13,7 +13,7 @@ const data = [
   {
     cat: "Education",
     name: "UCSF",
-    value: 248,
+    value: 265,
     icon: "./img/ucsf.png",
     desc: "Software Engineer",
     link: "Apply Now",
@@ -101,7 +101,7 @@ const data = [
   {
     cat: "Financial Services",
     name: "Capital One",
-    value: 622,
+    value: 562,
     icon: "./img/capitalone.png",
     desc: "Software Engineer",
     link: "Apply Now",
@@ -123,7 +123,7 @@ const data = [
   {
     cat: "Tech",
     name: "Microsoft",
-    value: 3225,
+    value: 3431,
     icon: "./img/microsoft.png",
     desc: "Software Engineer",
     link: "Apply Now",
@@ -134,7 +134,7 @@ const data = [
   {
     cat: "Tech",
     name: "Apple",
-    value: 1983,
+    value: 1968,
     icon: "./img/apple.png",
     desc: "Software Engineer",
     link: "Apply Now",
@@ -178,7 +178,7 @@ const data = [
   {
     cat: "Financial Services", 
     name: "American Express",
-    value: 183,
+    value: 179,
     icon: "./img/amex.png",
     desc: "Software Engineer",
     link: "Apply Now",
